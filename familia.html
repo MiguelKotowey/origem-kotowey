@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="">
+<head>
+<script>
+  (function() {
+    var saved = localStorage.getItem('tema');
+    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var tema = saved || (prefereDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', tema);
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Família — Kotovey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-marca">Família <span>Kotovey</span></div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="familia.html" class="ativo">A Família</a>
+      <a href="viagem.html">A Viagem</a>
+      <a href="documentos.html">Documentos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="galeria-renato.html">Galeria Renato</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
+    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html" onclick="fecharMenu()">Início</a>
+    <a href="familia.html" onclick="fecharMenu()">A Família</a>
+    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
+    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
+    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
+    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
+    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
+  </div>
+</nav>
+
+<div class="hero hero-pequeno">
+  <div class="hero-content">
+    <h1>A Família</h1>
+    <div class="hero-sub">Demétrio e Bárbara Kotovey* e seus descendentes</div>
+  </div>
+</div>
+
+<div class="pagina">
+
+  <section id="casal">
+    <div class="secao-titulo">O casal fundador</div>
+    <p class="secao-intro">Toda a pesquisa converge para Demétrio e Bárbara Kotovey*, que emigraram da Galícia em 1895 com cinco filhos.</p>
+
+    <div class="pessoas-grid">
+      <div class="pessoa-card destaque">
+        <div class="pessoa-nome">Demétrio Kotovey*</div>
+        <div class="pessoa-info">
+          Nome ucraniano: <em>Dmytro Kutovy</em><br>
+          Nascimento: ~1854<br>
+          Falecimento: ~1904<br>
+          Local nascimento: Galícia<br>
+          Pai: Miguel Kotovieg
+        </div>
+        <span class="badge">Casal fundador</span>
+      </div>
+      <div class="pessoa-card destaque">
+        <div class="pessoa-nome">Bárbara Kotovey*</div>
+        <div class="pessoa-info">
+          Nome ucraniano: <em>Varvara Kutovy</em><br>
+          Nascimento: ~1857–1861<br>
+          Falecimento: 09/07/1927<br>
+          Local nascimento: Galícia<br>
+          Túmulo localizado: Araucária, PR ✓<br>
+          <a href="galeria.html#tumulo" class="doc-ref" style="margin-top:8px">Ver fotos do túmulo</a>
+        </div>
+        <span class="badge">Casal fundador</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="filhos-galicia">
+    <div class="secao-titulo">Filhos nascidos na Galícia</div>
+    <p class="secao-intro">Cinco filhos vieram no navio em 1895. As idades na lista de passageiros estão registradas entre 1,5 e 12 anos.</p>
+    <div class="doc-refs">
+      <a href="documentos.html#attivita" class="doc-ref">Lista de passageiros — Vapor Attivita</a>
+    </div>
+
+    <div class="pessoas-grid">
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Anna Kotovey*</div>
+        <div class="pessoa-info">
+          Nascimento: 28/01/1883<br>
+          Falecimento: 03/04/1980<br>
+          Casou-se com: Miguel Brecailo<br>
+          Local nascimento: Galícia
+        </div>
+      </div>
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Maria Kotovey*</div>
+        <div class="pessoa-info">
+          Nascimento: ~1884<br>
+          Local nascimento: Galícia
+        </div>
+      </div>
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Nicolau Kotowey</div>
+        <div class="pessoa-info">
+          Nascimento: 19/01/1889<br>
+          Falecimento: 26/09/1957<br>
+          Casou-se com: Maria Olenik<br>
+          8 filhos<br>
+          Local nascimento: Galícia
+        </div>
+      </div>
+      <div class="pessoa-card">
+        <div class="pessoa-nome">João Kotovey*</div>
+        <div class="pessoa-info">
+          Nascimento: 05/11/1890<br>
+          Falecimento: 1967<br>
+          Casou-se com: Christina Nahumets<br>
+          Local nascimento: Galícia
+        </div>
+      </div>
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Eudóxia Kotovey*</div>
+        <div class="pessoa-info">
+          Nascimento: ~1894<br>
+          Falecimento: 28/04/1985<br>
+          Casou-se com: Estefano Matias<br>
+          Local nascimento: Galícia
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="filhos-brasil">
+    <div class="secao-titulo">Filhos nascidos no Brasil</div>
+    <p class="secao-intro">Dois filhos nasceram depois da chegada ao Paraná e não constam na lista de passageiros do navio.</p>
+
+    <div class="pessoas-grid">
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Sophia Kotovey*</div>
+        <div class="pessoa-info">
+          Nascimento: 20/02/1898<br>
+          Casou-se com: Paulo Tornoski<br>
+          Local nascimento: Brasil
+        </div>
+      </div>
+      <div class="pessoa-card">
+        <div class="pessoa-nome">Demétrio Kotovey* (filho)</div>
+        <div class="pessoa-info">
+          Nascimento: ~1900<br>
+          Falecimento: 04/08/1990<br>
+          Local nascimento: Brasil
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="linha">
+    <div class="secao-titulo">A linha pesquisada</div>
+    <p class="secao-intro">A linha de Nicolau Kotowey é a que tem mais documentação levantada até o momento — por ser a linha direta de quem conduz a pesquisa. Os demais ramos da família fazem parte desta pesquisa e serão incorporados conforme novos documentos forem encontrados.</p>
+
+    <div class="linha-descend">
+      <strong>Demétrio &amp; Bárbara</strong> → <strong>Nicolau</strong> Kotowey → <strong>Emílio</strong> Kotowey → <strong>Fernando</strong> Kotowey → <strong>Miguel</strong> Kotowey (pesquisador)
+    </div>
+  </section>
+
+  <section id="geracoes">
+    <div class="secao-titulo">Gerações seguintes</div>
+    <p class="secao-intro">A linha de Nicolau Kotowey até o pesquisador, com os dados confirmados por documentos.</p>
+
+    <h3>Emílio Kotowey &amp; Leonor Maria "Lola" (Wichert)</h3>
+
+    <div class="pessoas-grid">
+      <div class="pessoa-card destaque">
+        <div class="pessoa-nome">Emílio Kotowey</div>
+        <div class="pessoa-info">
+          Nascimento: 27/06/1925<br>
+          Falecimento: 26/04/1999<br>
+          Casou-se com: Leonor Maria Wichert<br>
+          4 filhos<br>
+          Local nascimento: Irati, PR
+        </div>
+        <span class="badge">Bisneto de Demétrio e Bárbara</span>
+      </div>
+      <div class="pessoa-card destaque">
+        <div class="pessoa-nome">Leonor Maria Wichert</div>
+        <div class="pessoa-info">
+          Nome casado: Leonor Maria Kotowey<br>
+          Apelido: Lola<br>
+          Nascimento: 30/04/1921<br>
+          Falecimento: 15/05/2009<br>
+          Local nascimento: Ponta Grossa, PR
+        </div>
+        <span class="badge">Por casamento com Emílio</span>
+      </div>
+    </div>
+
+    <div class="caixa">
+      <p>Emílio e Lola tiveram quatro filhos: <strong>Renato Sergio</strong> (★ 11/12/1953, ✝ 03/05/2011), <strong>Carlos Alberto</strong>, <strong>Carmen</strong> e <strong>Fernando</strong>.</p>
+      <p>O registro de falecimento de Emílio no FamilySearch foi o ponto de partida de toda a pesquisa genealógica desta família.</p>
+    </div>
+
+    <h3>Fernando Kotowey</h3>
+
+    <div class="pessoas-grid">
+      <div class="pessoa-card destaque">
+        <div class="pessoa-nome">Fernando Kotowey</div>
+        <div class="pessoa-info">
+          Local nascimento: Ponta Grossa, PR
+        </div>
+        <span class="badge">Trineto de Demétrio e Bárbara</span>
+      </div>
+    </div>
+
+    <div class="caixa caixa-azul">
+      <p>Os demais ramos da família — descendentes de Anna, Maria, João, Eudóxia, Sophia e Demétrio filho — fazem parte desta pesquisa. A documentação sobre essas linhas está sendo levantada progressivamente. Se você é descendente de qualquer um dos sete filhos, entre em contato.</p>
+    </div>
+  </section>
+
+  <section id="sobrenome">
+    <div class="secao-titulo">O sobrenome</div>
+    <p class="secao-intro">Ao longo dos documentos encontrados, o sobrenome aparece grafado de dezenas de formas diferentes.</p>
+
+    <p>Os escrivães brasileiros e europeus registravam o que ouviam, num idioma que não conheciam. Por isso o mesmo sobrenome aparece como <em>Kutowy, Kotowy, Kotowi, Kotovei, Kotovieg, Kotoviske, Cotovey, Kotowey</em> — entre outros.</p>
+
+    <div class="caixa caixa-azul">
+      A forma mais provável do sobrenome original é <strong>Кутовий (Kutovy)</strong> em ucraniano — de <em>kut</em>, que significa "canto" ou "extremidade de aldeia". O sobrenome existe na Ucrânia desde pelo menos 1756. Com o tempo, no Brasil, foi abrasileirado para <strong>Kotowey</strong>.
+    </div>
+  </section>
+
+  <section id="o-que-sabemos">
+    <div class="secao-titulo">O que sabemos</div>
+    <p class="secao-intro">Fatos confirmados por documentos originais — não por memória ou tradição oral.</p>
+
+    <div class="caixa caixa-azul">
+      <p>✅ &nbsp;A família chegou ao Brasil em <strong>20 de janeiro de 1896</strong>, no vapor <em>Attivita</em>, pelo Rio de Janeiro.</p>
+      <p>✅ &nbsp;Chegaram ao Paraná em <strong>30 de março de 1896</strong>, pelo porto de Paranaguá.</p>
+      <p>✅ &nbsp;O destino registrado era a <strong>Colônia Francisco Torres</strong>, Araucária-PR.</p>
+      <p>✅ &nbsp;Bárbara faleceu em <strong>09/07/1927</strong>, em Campo Largo-PR, com 70 anos.</p>
+      <p>✅ &nbsp;O túmulo de Bárbara está no <strong>Cemitério da Igreja Assunção de Nossa Senhora</strong>, Colônia Ipiranga, Araucária.</p>
+      <p>✅ &nbsp;O pai de Demétrio se chamava <strong>Miguel Kotovieg</strong>.</p>
+      <p>✅ &nbsp;Eudóxia Kotovey* faleceu em <strong>28/04/1985</strong>, em Curitiba, com 91 anos.</p>
+      <div class="doc-refs">
+        <a href="documentos.html#attivita" class="doc-ref">Lista de passageiros — Vapor Attivita</a>
+        <a href="documentos.html#hospedaria" class="doc-ref">Hospedaria de Pinheiros</a>
+        <a href="documentos.html#codice817" class="doc-ref">Códice 817 — Paranaguá</a>
+        <a href="documentos.html#codice821" class="doc-ref">Códice 821 — Paraná</a>
+      </div>
+    </div>
+
+    <h3>O que ainda buscamos</h3>
+    <div class="tabela-scroll">
+      <table>
+        <tr><th>O que</th><th>Por que importa</th></tr>
+        <tr>
+          <td>Localidade exata na Galícia</td>
+          <td>Sem ela, não conseguimos acessar os registros paroquiais ucranianos com os pais e avós de Demétrio</td>
+        </tr>
+        <tr>
+          <td>Certidão de óbito de Demétrio (~1904)</td>
+          <td>Pode conter o nome dos pais e a cidade de origem</td>
+        </tr>
+        <tr>
+          <td>Registros da Metropolia Ucraniana (Curitiba)</td>
+          <td>A Igreja Greco-Católica pode ter registros das comunidades imigrantes do Paraná</td>
+        </tr>
+        <tr>
+          <td>Registros de Proniatyn no FamilySearch</td>
+          <td>Localidade apontada pelo fórum ucraniano como possível origem</td>
+        </tr>
+      </table>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
+  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
+</footer>
+
+<script>
+  function alternarTema() {
+    var atual = document.documentElement.getAttribute('data-theme');
+    var novo = atual === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', novo);
+    localStorage.setItem('tema', novo);
+  }
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('aberto');
+  }
+  function fecharMenu() {
+    document.getElementById('nav-mobile').classList.remove('aberto');
+  }
+</script>
+</body>
+</html>

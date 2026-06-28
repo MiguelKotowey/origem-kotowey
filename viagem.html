@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="">
+<head>
+<script>
+  (function() {
+    var saved = localStorage.getItem('tema');
+    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var tema = saved || (prefereDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', tema);
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Viagem — Kotovey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-marca">Família <span>Kotovey</span></div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="familia.html">A Família</a>
+      <a href="viagem.html" class="ativo">A Viagem</a>
+      <a href="documentos.html">Documentos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="galeria-renato.html">Galeria Renato</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
+    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html" onclick="fecharMenu()">Início</a>
+    <a href="familia.html" onclick="fecharMenu()">A Família</a>
+    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
+    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
+    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
+    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
+    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
+  </div>
+</nav>
+
+<div class="hero hero-pequeno">
+  <div class="hero-content">
+    <h1>A Viagem</h1>
+    <div class="hero-sub">Da Galícia ao Paraná — 1895 a 1896</div>
+  </div>
+</div>
+
+<div class="pagina">
+
+  <section id="rota">
+    <div class="secao-titulo">A rota</div>
+    <p class="secao-intro">No final de 1895, Demétrio e Bárbara emigraram da Galícia com cinco filhos. Chegaram ao Brasil em janeiro de 1896 e se estabeleceram na região de Araucária, no Paraná.</p>
+
+    <div class="rota">
+      <div class="rota-ponto">
+        <div class="rota-lugar">Galícia</div>
+        <div class="rota-detalhe">Ucrânia ocidental<br>Ponto de partida</div>
+      </div>
+      <div class="rota-seta">→</div>
+      <div class="rota-ponto">
+        <div class="rota-lugar">Gênova</div>
+        <div class="rota-detalhe">Itália · ~dez/1895<br>Porto de embarque</div>
+      </div>
+      <div class="rota-seta">→</div>
+      <div class="rota-ponto">
+        <div class="rota-lugar">Rio de Janeiro</div>
+        <div class="rota-detalhe">Brasil · 20/01/1896<br>28 dias de viagem</div>
+      </div>
+      <div class="rota-seta">→</div>
+      <div class="rota-ponto">
+        <div class="rota-lugar">Paranaguá</div>
+        <div class="rota-detalhe">Paraná · 30/03/1896<br>Vapor Satellite</div>
+      </div>
+      <div class="rota-seta">→</div>
+      <div class="rota-ponto">
+        <div class="rota-lugar">Araucária</div>
+        <div class="rota-detalhe">Paraná · abr/1896<br>Destino final</div>
+      </div>
+    </div>
+
+    <div class="caixa">
+      <strong>O navio: Vapor Attivita.</strong> Partiu de Gênova por volta de 23 de dezembro de 1895. Na lista de passageiros, a família aparece como <em>Dmytro Kutowy</em> e família — sete pessoas no total. Nacionalidade declarada: <strong>austríaca</strong> (porque a Galícia pertencia ao Império Austro-Húngaro). Religião: católica.
+      <div class="doc-refs">
+        <a href="documentos.html#attivita" class="doc-ref">Lista de passageiros — Vapor Attivita</a>
+      </div>
+    </div>
+
+    <div class="caixa caixa-dourada">
+      <strong>Por que "austríacos"?</strong> Em 1896, a Galícia fazia parte do Império Austro-Húngaro. Os ucranianos que viviam lá se declaravam "austríacos" nos documentos — mas sua língua, cultura e religião eram ucranianas. Após 1918, com o fim do império, passaram a se identificar como ucranianos.
+    </div>
+  </section>
+
+  <section id="hospedaria">
+    <div class="secao-titulo">Hospedaria de Imigrantes</div>
+    <p class="secao-intro">Ao chegar ao Rio de Janeiro, a família ficou alojada na Hospedaria de Imigrantes de Pinheiros por dois meses antes de seguir para o Paraná.</p>
+
+    <div class="tabela-scroll">
+      <table>
+        <tr><th>Evento</th><th>Data</th><th>Local</th></tr>
+        <tr><td>Chegada ao Rio de Janeiro</td><td>20/01/1896</td><td>Porto do Rio de Janeiro</td></tr>
+        <tr><td>Entrada na Hospedaria</td><td>20/01/1896</td><td>Pinheiros, Rio de Janeiro</td></tr>
+        <tr><td>Saída da Hospedaria</td><td>27/03/1896</td><td>Destino: Paraná</td></tr>
+        <tr><td>Chegada a Paranaguá</td><td>30/03/1896</td><td>Porto de Paranaguá (vapor Satellite)</td></tr>
+        <tr><td>Destino registrado</td><td>Abril de 1896</td><td>Colônia Francisco Torres, Araucária-PR</td></tr>
+      </table>
+    </div>
+    <div class="doc-refs">
+      <a href="documentos.html#hospedaria" class="doc-ref">Registro da Hospedaria de Pinheiros</a>
+      <a href="documentos.html#codice817" class="doc-ref">Códice 817 — Paranaguá</a>
+    </div>
+  </section>
+
+  <section id="descobertas">
+    <div class="secao-titulo">Cronograma de descobertas</div>
+    <p class="secao-intro">A pesquisa começou no início de 2024 e está em andamento. Abaixo estão os principais achados em ordem cronológica.</p>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-data">Início de 2024</div>
+        <div class="timeline-titulo">O ponto de partida</div>
+        <div class="timeline-texto">O registro de falecimento de Emílio Kotowey foi localizado no FamilySearch. A partir desse documento, a pesquisa pelas gerações anteriores teve início.</div>
+        <span class="tag tag-descoberta">Descoberta</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Abril de 2024</div>
+        <div class="timeline-titulo">Códices do Arquivo do Paraná</div>
+        <div class="timeline-texto">Os <strong>Códices 817 e 821</strong> foram obtidos junto ao Arquivo Público do Paraná — registros oficiais de chegada de imigrantes em 1895–1896. A família aparece com chegada em Paranaguá em 30/03/1896, com destino à região de Araucária. Primeiro documento brasileiro que confirma a presença deles no Paraná.</div>
+        <span class="tag tag-documento">Documento oficial</span>
+        <div class="doc-refs">
+          <a href="documentos.html#codice817" class="doc-ref">Códice 817</a>
+          <a href="documentos.html#codice821" class="doc-ref">Códice 821</a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Maio de 2024</div>
+        <div class="timeline-titulo">A lápide de Bárbara</div>
+        <div class="timeline-texto">No site BillionGraves foi encontrada a foto da lápide de Bárbara Kotovey* — inscrita em ucraniano: <strong>ВАРВАРА КОТОВИЙ</strong>. Gislaine Ternoski, da comunidade ucraniana de Araucária, confirmou: o túmulo fica no Cemitério da Igreja Assunção de Nossa Senhora, Colônia Ipiranga, Araucária.</div>
+        <span class="tag tag-contato">Contato</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Julho de 2024</div>
+        <div class="timeline-titulo">Registro de óbito de Bárbara</div>
+        <div class="timeline-texto">No índice de óbitos de Campo Largo (1923–1929) foi localizado o registro de falecimento de Bárbara Kotovey*: <strong>09 de julho de 1927</strong>, com 70 anos.</div>
+        <span class="tag tag-confirmado">Confirmado</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">2024</div>
+        <div class="timeline-titulo">Visita ao túmulo</div>
+        <div class="timeline-texto">O cemitério em Araucária foi visitado pessoalmente. O túmulo de Bárbara Kotovey* foi localizado — a lápide está escrita em ucraniano.</div>
+        <span class="tag tag-visita">Visita</span>
+        <div class="doc-refs">
+          <a href="galeria.html#tumulo" class="doc-ref">Fotos do túmulo de Bárbara</a>
+          <a href="galeria.html#igreja" class="doc-ref">Igreja Assunção de Nossa Senhora</a>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Novembro de 2024</div>
+        <div class="timeline-titulo">Arquivo Histórico de Araucária</div>
+        <div class="timeline-texto">O Arquivo Histórico municipal de Araucária foi contactado. Resultado: sem registros da família. O município tem predominância polonesa; os ucranianos se concentravam em Ipiranga, com pouca documentação no arquivo central.</div>
+        <span class="tag tag-contato">Contato</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Maio de 2025</div>
+        <div class="timeline-titulo">Fórum ucraniano de genealogia</div>
+        <div class="timeline-texto">A história da família foi apresentada em um fórum especializado de genealogia ucraniana. Pesquisadores da Ucrânia apontaram o sobrenome original como provavelmente <strong>Кутовий (Kutovy)</strong>, de <em>kut</em> (canto, borda de aldeia). A região de <strong>Proniatyn, perto de Ternopil</strong>, foi indicada como possível localidade de origem.</div>
+        <span class="tag tag-descoberta">Descoberta importante</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Maio de 2025</div>
+        <div class="timeline-titulo">Arquivo Imperial de Viena</div>
+        <div class="timeline-texto">Foi enviada consulta ao arquivo histórico do antigo Império Austro-Húngaro em Viena (HHStA). Resposta: não existem listas nominais completas dos emigrantes de 1895 — apenas relatórios estatísticos. Pesquisa presencial em Viena seria necessária para avançar.</div>
+        <span class="tag tag-contato">Contato internacional</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Junho de 2026</div>
+        <div class="timeline-titulo">Segunda consulta ao Arquivo de Viena — resultado definitivo</div>
+        <div class="timeline-texto">Nova consulta ao HHStA, desta vez com os dados completos do rascunho elaborado pelo fórum ucraniano. Resultado: nenhuma referência encontrada. O arquivo imperial guarda documentação do governo central habsburgo, não dos distritos locais — a ausência de registros ali não descarta documentação em outros níveis. A pesquisa precisa ir para os <strong>arquivos regionais</strong>: o Arquivo Estadual da Região de Lviv (ДАЛО) e as coleções de registros paroquiais greco-católicos do FamilySearch, com foco em <strong>Proniatyn</strong> e região.</div>
+        <span class="tag tag-contato">Contato internacional</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-data">Junho de 2026</div>
+        <div class="timeline-titulo">Três leads novos — memória oral e cemitério</div>
+        <div class="timeline-texto">
+          <strong>1. Contato Tornoski:</strong> A recepcionista da Igreja Assunção de Nossa Senhora (Guajuvira, Araucária) tem o sobrenome Tornoski — o mesmo de Paulo Tornoski, marido de Sophia Kotovey*. Ela confirmou a ligação com a família. É um contato vivo com potencial acesso a documentos e memória oral sobre Sophia e seus descendentes.<br><br>
+          <strong>2. A terra de Nicolau:</strong> Carmem Kotowey (irmã de Fernando) relatou que os avós visitaram uma chácara em Araucária relacionada a uma terra que Nicolau vendeu sem receber o pagamento. A hipótese é que seja o lote original da Colônia Francisco Torres, destinado à família em 1896 e herdado por Nicolau após a morte de Demétrio em 1904. Um rastro documental pode existir no cartório de registros de imóveis de Araucária ou Campo Largo.<br><br>
+          <strong>3. Cemitério dos Palhanos:</strong> Existe na região um cemitério abandonado chamado "cemitério dos palhanos", que era compartilhado por ucranianos e poloneses antes de as duas comunidades se separarem. Como Demétrio faleceu em 1904 — possivelmente antes dessa cisão —, ele pode estar enterrado nesse cemitério, e não no Cemitério da Igreja Assunção onde Bárbara está sepultada.
+        </div>
+        <span class="tag tag-descoberta">Descoberta importante</span>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
+  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
+</footer>
+
+<script>
+  function alternarTema() {
+    var atual = document.documentElement.getAttribute('data-theme');
+    var novo = atual === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', novo);
+    localStorage.setItem('tema', novo);
+  }
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('aberto');
+  }
+  function fecharMenu() {
+    document.getElementById('nav-mobile').classList.remove('aberto');
+  }
+</script>
+</body>
+</html>

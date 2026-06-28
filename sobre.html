@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="">
+<head>
+<script>
+  (function() {
+    var saved = localStorage.getItem('tema');
+    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var tema = saved || (prefereDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', tema);
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre — Kotovey</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-marca">Família <span>Kotovey</span></div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="familia.html">A Família</a>
+      <a href="viagem.html">A Viagem</a>
+      <a href="documentos.html">Documentos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="galeria-renato.html">Galeria Renato</a>
+      <a href="sobre.html" class="ativo">Sobre</a>
+    </div>
+    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
+    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html" onclick="fecharMenu()">Início</a>
+    <a href="familia.html" onclick="fecharMenu()">A Família</a>
+    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
+    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
+    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
+    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
+    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
+  </div>
+</nav>
+
+<div class="hero hero-pequeno">
+  <div class="hero-content">
+    <h1>Sobre</h1>
+    <div class="hero-sub">Quem sou eu e por que comecei essa pesquisa</div>
+  </div>
+</div>
+
+<div class="pagina">
+
+  <section id="quem-sou">
+    <div class="secao-titulo">Quem conduz esta pesquisa</div>
+    <p class="secao-intro">Miguel Kotowey é descendente de Demétrio e Bárbara pela linha de Nicolau → Emílio → Fernando, e é quem está à frente desta pesquisa desde o início.</p>
+
+    <p>A pesquisa começou por acaso, quando o site <strong>FamilySearch</strong> revelou os primeiros registros da família. A partir de um documento de falecimento, foi possível entender como navegar pelos arquivos e expandir a busca pelas gerações anteriores.</p>
+
+    <p>Pela linha materna (sobrenome Wichert/Wiechert) os registros apareceram com relativa facilidade. Já pelo lado Kotovey a história é outra — o sobrenome sofreu tantas variações gráficas ao longo dos documentos que cada busca é um exercício de criatividade.</p>
+
+    <div class="caixa caixa-azul">
+      <p>Uma nota importante sobre o FamilySearch: os registros são compartilhados entre todos os usuários. Se você acessar e alterar a árvore genealógica a que um registro pertence, pode interferir na pesquisa de outras pessoas. Corrija apenas o que diz respeito à sua linha — e com cuidado.</p>
+    </div>
+  </section>
+
+  <section id="como-comecou">
+    <div class="secao-titulo">Como a pesquisa começou</div>
+    <p class="secao-intro">O fio puxou por um registro no sistema de imigrantes do Paraná.</p>
+
+    <p>Sem saber por onde começar, pesquisei "imigrantes Paraná" e encontrei o sistema de consulta do governo estadual. O sobrenome Kotovey é cheio de variações, então busquei por <strong>kot*</strong> (asterisco para trazer tudo que começa com "kot"). O retorno trouxe referências nos livros <strong>817 e 821</strong>.</p>
+
+    <p>Enviei um e-mail ao Departamento Estadual do Arquivo Público do Paraná em 26 de abril de 2024 e recebi os dois códices. Eles registram a chegada da família em Paranaguá no dia <strong>30 de março de 1896</strong>, vindos do Rio de Janeiro, com destino à Colônia Francisco Torres, em Araucária. Foi o primeiro documento brasileiro que confirmou a presença deles no Paraná.</p>
+    <div class="doc-refs">
+      <a href="documentos.html#codice817" class="doc-ref">Códice 817</a>
+      <a href="documentos.html#codice821" class="doc-ref">Códice 821</a>
+    </div>
+
+    <p>A partir daí, a pesquisa ganhou rumo. Este site é o registro do que já foi descoberto — e do que ainda está sendo investigado.</p>
+  </section>
+
+  <section id="contato">
+    <div class="secao-titulo">Entre em contato</div>
+    <p class="secao-intro">Se você é da família ou tem qualquer informação, documento ou foto que possa ajudar:</p>
+
+    <div class="contato-box">
+      <h3>Miguel Kotowey</h3>
+      <p><a href="mailto:miguel.kotowey@hotmail.com">miguel.kotowey@hotmail.com</a></p>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
+  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
+</footer>
+
+<script>
+
+  function alternarTema() {
+    var atual = document.documentElement.getAttribute('data-theme');
+    var novo = atual === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', novo);
+    localStorage.setItem('tema', novo);
+  }
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('aberto');
+  }
+  function fecharMenu() {
+    document.getElementById('nav-mobile').classList.remove('aberto');
+  }
+</script>
+</body>
+</html>

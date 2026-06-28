@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="">
+<head>
+<script>
+  (function() {
+    var saved = localStorage.getItem('tema');
+    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var tema = saved || (prefereDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', tema);
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos — Kotovey</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .doc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 28px 0 0;
+  }
+
+  .doc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--azul-claro);
+    border-radius: 0 5px 5px 0;
+    padding: 18px 20px;
+    cursor: pointer;
+    transition: border-left-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    box-shadow: 0 1px 4px var(--sombra);
+  }
+
+  .doc-card:hover {
+    border-left-color: var(--amarelo);
+    box-shadow: 0 4px 14px var(--sombra);
+    transform: translateX(2px);
+  }
+
+  .doc-card.ativo {
+    border-left-color: var(--amarelo);
+    box-shadow: 0 4px 14px var(--sombra);
+  }
+
+  .doc-card-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+
+  .doc-card-arquivo {
+    font-size: 11px;
+    font-family: 'Crimson Pro', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--azul-claro);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .doc-card-desc {
+    font-size: 13px;
+    color: var(--texto-suave);
+    line-height: 1.65;
+  }
+
+  /* ── Viewer ── */
+  .doc-viewer {
+    margin-top: 20px;
+    border: 1px solid var(--borda);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px var(--sombra);
+  }
+
+  .doc-viewer-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--azul-escuro);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .doc-viewer-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 0.01em;
+  }
+
+  .doc-toggle {
+    display: flex;
+    gap: 6px;
+  }
+
+  .doc-btn {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.65);
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .doc-btn:hover {
+    background: rgba(255,255,255,0.14);
+    color: white;
+  }
+
+  .doc-btn.ativo {
+    background: var(--amarelo);
+    border-color: var(--amarelo);
+    color: var(--azul-escuro);
+  }
+
+  #doc-iframe {
+    display: block;
+    width: 100%;
+    height: 78vh;
+    border: none;
+    background: var(--bg-cinza);
+  }
+
+  @media (max-width: 640px) {
+    .doc-grid { grid-template-columns: 1fr; }
+    .doc-viewer-header { flex-direction: column; align-items: flex-start; }
+    #doc-iframe { height: 60vh; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-marca">Família <span>Kotovey</span></div>
+    <div class="nav-links">
+      <a href="index.html">Início</a>
+      <a href="familia.html">A Família</a>
+      <a href="viagem.html">A Viagem</a>
+      <a href="documentos.html" class="ativo">Documentos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="galeria-renato.html">Galeria Renato</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
+    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html" onclick="fecharMenu()">Início</a>
+    <a href="familia.html" onclick="fecharMenu()">A Família</a>
+    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
+    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
+    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
+    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
+    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
+  </div>
+</nav>
+
+<div class="hero hero-pequeno">
+  <div class="hero-content">
+    <h1>Documentos</h1>
+    <div class="hero-sub">Fontes primárias da pesquisa</div>
+  </div>
+</div>
+
+<div class="pagina">
+
+  <section id="fontes">
+    <div class="secao-titulo">Registros oficiais</div>
+    <p class="secao-intro">Documentos originais que registram a chegada da família Kotovey ao Brasil. Selecione um registro e escolha entre visualizar a página específica onde a família aparece ou o livro completo.</p>
+
+    <div class="doc-grid" id="doc-grid"></div>
+
+    <div class="doc-viewer" id="doc-viewer" style="display:none">
+      <div class="doc-viewer-header">
+        <div class="doc-viewer-titulo" id="doc-viewer-titulo"></div>
+        <div class="doc-toggle">
+          <button class="doc-btn ativo" id="btn-pagina" onclick="mostrar('pagina')">Página específica</button>
+          <button class="doc-btn" id="btn-livro" onclick="mostrar('livro')">Livro completo</button>
+          <button class="doc-btn" onclick="fecharViewer()">← Fechar</button>
+        </div>
+      </div>
+      <iframe id="doc-iframe" title="Visualizador de documento"></iframe>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
+  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
+</footer>
+
+<script>
+  var docs = [
+    {
+      id: 'attivita',
+      titulo: 'Vapor Attivita — Lista de Passageiros',
+      arquivo: 'Arquivo Nacional · Rio de Janeiro',
+      desc: 'Registro dos passageiros embarcados em Gênova com destino ao Brasil (dez. 1895 – jan. 1896). A família aparece como <em>Dmytro Kutowy</em> e família — sete pessoas, nacionalidade austríaca.',
+      pagina: 'documentos/codices e livros/relação de passageiros - vapor attivita/pagina_exata.pdf',
+      livro:  'documentos/codices e livros/relação de passageiros - vapor attivita/livro-completo_BR_RJANRIO_OL_0_RPV_PRJ_05544_d0001de0001.pdf',
+    },
+    {
+      id: 'hospedaria',
+      titulo: 'Hospedaria de Pinheiros — Relação de Imigrantes',
+      arquivo: 'Arquivo Nacional · Rio de Janeiro',
+      desc: 'Registro de entrada e saída na Hospedaria de Imigrantes do Rio de Janeiro. A família ficou hospedada de 20/01/1896 a 27/03/1896 antes de seguir para o Paraná.',
+      pagina: 'documentos/codices e livros/relação de imigrantes - hospedaria em pinheiro/pagina_exata.pdf',
+      livro:  'documentos/codices e livros/relação de imigrantes - hospedaria em pinheiro/documento_completo_BR_RJANRIO_OB_0_EPE_HIP_0073_d0013de0013 (HOSPEDARIA EM PINHEIRO).pdf',
+    },
+    {
+      id: 'codice817',
+      titulo: 'Códice 817 — Chegada em Paranaguá',
+      arquivo: 'Arquivo Público do Paraná',
+      desc: 'Registro de chegada de imigrantes ao Paraná. A família aparece com data de chegada em Paranaguá: 30/03/1896, com destino à Colônia Francisco Torres, Araucária.',
+      pagina: 'documentos/codices e livros/817 - registro da chegada em Paranaguá/pagina_exata.pdf',
+      livro:  'documentos/codices e livros/817 - registro da chegada em Paranaguá/livro_completo_817.pdf',
+    },
+    {
+      id: 'codice821',
+      titulo: 'Códice 821 — Registro de Chegada PR 1895–1896',
+      arquivo: 'Arquivo Público do Paraná',
+      desc: 'Registro oficial de chegada de imigrantes ao Paraná entre 1895 e 1896. Contém quatro registros da família Kotovey em páginas distintas.',
+      pagina: 'documentos/codices e livros/821 - registro de chegada/paginas_exatas_4_registros.pdf',
+      livro:  'documentos/codices e livros/821 - registro de chegada/Códice 821.pdf',
+    },
+  ];
+
+  var docAtivo = null;
+  var modoAtivo = 'pagina';
+
+  function renderCards() {
+    var grid = document.getElementById('doc-grid');
+    grid.innerHTML = docs.map(function(d) {
+      return '<div class="doc-card" id="card-' + d.id + '" onclick="selecionarDoc(\'' + d.id + '\')">'
+        + '<div class="doc-card-arquivo">' + d.arquivo + '</div>'
+        + '<div class="doc-card-titulo">' + d.titulo + '</div>'
+        + '<div class="doc-card-desc">' + d.desc + '</div>'
+        + '</div>';
+    }).join('');
+  }
+
+  function selecionarDoc(id) {
+    if (docAtivo) {
+      document.getElementById('card-' + docAtivo).classList.remove('ativo');
+    }
+    docAtivo = id;
+    document.getElementById('card-' + id).classList.add('ativo');
+
+    var d = docs.find(function(x) { return x.id === id; });
+    document.getElementById('doc-viewer-titulo').textContent = d.titulo;
+    document.getElementById('doc-viewer').style.display = '';
+
+    modoAtivo = 'pagina';
+    document.getElementById('btn-pagina').classList.add('ativo');
+    document.getElementById('btn-livro').classList.remove('ativo');
+    document.getElementById('doc-iframe').src = encodeURI(d.pagina);
+
+    document.getElementById('doc-viewer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function fecharViewer() {
+    var veioDeOutraPagina = document.referrer && !document.referrer.includes('documentos.html');
+    if (veioDeOutraPagina) {
+      history.back();
+    } else {
+      document.getElementById('doc-viewer').style.display = 'none';
+      document.getElementById('card-' + docAtivo).scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function mostrar(modo) {
+    if (!docAtivo) return;
+    var d = docs.find(function(x) { return x.id === docAtivo; });
+    modoAtivo = modo;
+    document.getElementById('btn-pagina').classList.toggle('ativo', modo === 'pagina');
+    document.getElementById('btn-livro').classList.toggle('ativo', modo === 'livro');
+    document.getElementById('doc-iframe').src = encodeURI(d[modo]);
+  }
+
+  function alternarTema() {
+    var atual = document.documentElement.getAttribute('data-theme');
+    var novo = atual === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', novo);
+    localStorage.setItem('tema', novo);
+  }
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('aberto');
+  }
+  function fecharMenu() {
+    document.getElementById('nav-mobile').classList.remove('aberto');
+  }
+
+  renderCards();
+  var hash = window.location.hash.slice(1);
+  if (hash && docs.find(function(x) { return x.id === hash; })) {
+    selecionarDoc(hash);
+  }
+</script>
+</body>
+</html>

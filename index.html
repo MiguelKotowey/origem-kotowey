@@ -1,277 +1,104 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Família Kotowey — De onde viemos</title>
-  <link rel="stylesheet" href="style.css">
+<script>
+  (function() {
+    var saved = localStorage.getItem('tema');
+    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var tema = saved || (prefereDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', tema);
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Família Kotovey — De onde viemos</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <div class="nav-marca">Família <span>Kotowey</span></div>
-    <a href="#quem-somos" class="ativo">A Família</a>
-    <a href="#a-viagem">A Viagem</a>
-    <a href="#descobertas">Descobertas</a>
-    <a href="#o-que-sabemos">O que sabemos</a>
-    <a href="#ajude">Você pode ajudar</a>
+    <div class="nav-marca">Família <span>Kotovey</span></div>
+    <div class="nav-links">
+      <a href="index.html" class="ativo">Início</a>
+      <a href="familia.html">A Família</a>
+      <a href="viagem.html">A Viagem</a>
+      <a href="documentos.html">Documentos</a>
+      <a href="galeria.html">Galeria</a>
+      <a href="galeria-renato.html">Galeria Renato</a>
+      <a href="sobre.html">Sobre</a>
+    </div>
+    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
+    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  </div>
+  <div class="nav-mobile" id="nav-mobile">
+    <a href="index.html" onclick="fecharMenu()">Início</a>
+    <a href="familia.html" onclick="fecharMenu()">A Família</a>
+    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
+    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
+    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
+    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
+    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
   </div>
 </nav>
 
 <div class="hero">
   <div class="hero-content">
-    <h1>De onde viemos</h1>
-    <div class="hero-sub">A pesquisa das origens da família Kotowey</div>
-    <p>A família Kotowey emigrou da Galícia — região que hoje é a Ucrânia ocidental — e chegou ao Paraná em 1896. Esta página reúne o que já foi descoberto sobre essa origem e o que ainda está sendo investigado.</p>
+    <h1>Família Kotovey</h1>
+    <div class="hero-sub">A pesquisa das nossas origens</div>
+    <p>A família Kotovey emigrou da Galícia — região que hoje é a Ucrânia ocidental — e chegou ao Paraná em 1896. Este site reúne o que já foi descoberto sobre essa origem e o que ainda está sendo investigado.</p>
   </div>
 </div>
 
 <div class="pagina">
 
-  <!-- ══ QUEM SOMOS ══ -->
-  <section id="quem-somos">
-    <div class="secao-titulo">A família</div>
-    <p class="secao-intro">
-      Toda a pesquisa converge para um casal: <strong>Demétrio e Bárbara Kotowey</strong>. Eles vieram da Galícia — região que hoje é a Ucrânia ocidental — e chegaram ao Paraná em 1896 com cinco filhos. Mais dois nasceriam já no Brasil.
-    </p>
+  <section id="navegacao">
+    <div class="secao-titulo">O que você encontra aqui</div>
+    <p class="secao-intro">Navegue pelas seções abaixo para conhecer a história, os documentos encontrados e as pessoas que compõem essa pesquisa.</p>
 
-    <h3>O casal fundador</h3>
-    <div class="pessoas-grid">
-      <div class="pessoa-card destaque">
-        <div class="pessoa-nome">Demétrio Kotowey</div>
-        <div class="pessoa-info">
-          Nome ucraniano: <em>Dmytro Kutovy</em><br>
-          Nascimento: ~1854, Galícia<br>
-          Falecimento: ~1904, Araucária-PR<br>
-          Pai: Miguel Kotovieg
-        </div>
-        <span class="badge">Tataravô</span>
-      </div>
-      <div class="pessoa-card destaque">
-        <div class="pessoa-nome">Bárbara Kotowey</div>
-        <div class="pessoa-info">
-          Nome ucraniano: <em>Varvara Kutovy</em><br>
-          Nascimento: ~1857–1861, Galícia<br>
-          Falecimento: 09/07/1927, Campo Largo-PR<br>
-          Túmulo localizado em Araucária ✓
-        </div>
-        <span class="badge">Tataravó</span>
-      </div>
-    </div>
+    <div class="home-grid">
 
-    <h3>Os filhos — nascidos na Galícia</h3>
-    <div class="pessoas-grid">
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Anna Kotowey</div>
-        <div class="pessoa-info">Nasc. 28/01/1883 · Falec. 03/04/1980<br>Casou-se com Miguel Brecailo</div>
-      </div>
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Maria Kotowey</div>
-        <div class="pessoa-info">Nasc. ~1884<br>Demais dados desconhecidos</div>
-      </div>
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Nicolau Kotowey</div>
-        <div class="pessoa-info">Nasc. 19/01/1889 · Falec. 23/09/1957<br>Casou-se com Maria Olenik</div>
-      </div>
-      <div class="pessoa-card">
-        <div class="pessoa-nome">João Kotowey</div>
-        <div class="pessoa-info">Nasc. 05/11/1890 · Falec. 1967<br>Casou-se com Christina Nahumets</div>
-      </div>
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Eudóxia Kotowey</div>
-        <div class="pessoa-info">Nasc. ~1894 · Falec. 28/04/1985<br>Casou-se com Estefano Matias</div>
-      </div>
-    </div>
+      <a href="familia.html" class="home-card">
+        <div class="home-card-icone">👨‍👩‍👧‍👦</div>
+        <div class="home-card-titulo">A Família</div>
+        <div class="home-card-desc">Demétrio e Bárbara Kotovey*, os sete filhos e a linha que chega até hoje. O que sabemos sobre cada um e o que ainda buscamos.</div>
+      </a>
 
-    <h3>Nascidos já no Brasil</h3>
-    <div class="pessoas-grid">
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Sophia Kotowey</div>
-        <div class="pessoa-info">Nasc. 20/02/1898, Brasil<br>Casou-se com Paulo Tornoski</div>
-      </div>
-      <div class="pessoa-card">
-        <div class="pessoa-nome">Demétrio Kotowey (filho)</div>
-        <div class="pessoa-info">Nasc. ~1900, Brasil<br>Falec. 04/08/1990</div>
-      </div>
-    </div>
+      <a href="viagem.html" class="home-card">
+        <div class="home-card-icone">🚢</div>
+        <div class="home-card-titulo">A Viagem</div>
+        <div class="home-card-desc">A rota da Galícia ao Paraná em 1895–1896: o navio Attivita, a Hospedaria de Imigrantes no Rio de Janeiro e a chegada a Araucária.</div>
+      </a>
 
-    <h3>A linha que chega até nós</h3>
-    <div class="linha-descend">
-      <strong>Demétrio &amp; Bárbara</strong> → <strong>Nicolau</strong> Kotowey → <strong>Emílio</strong> Kotowey → <strong>Fernando</strong> Kotowey → <strong>Miguel</strong> Kotowey
-    </div>
-  </section>
+      <a href="galeria.html" class="home-card">
+        <div class="home-card-icone">📷</div>
+        <div class="home-card-titulo">Galeria</div>
+        <div class="home-card-desc">Fotos da família, do cemitério em Araucária, documentos e registros encontrados ao longo da pesquisa.</div>
+      </a>
 
-  <!-- ══ A VIAGEM ══ -->
-  <section id="a-viagem">
-    <div class="secao-titulo">A viagem</div>
-    <p class="secao-intro">
-      No final de 1895, Demétrio e Bárbara emigraram da Galícia com cinco filhos. Chegaram ao Brasil em janeiro de 1896 e se estabeleceram na região de Araucária, no Paraná.
-    </p>
+      <a href="galeria-renato.html" class="home-card">
+        <div class="home-card-icone">🎨</div>
+        <div class="home-card-titulo">Galeria Renato</div>
+        <div class="home-card-desc">Homenagem ao tio Galeria Renato, que pintava quadros. Uma forma de guardar essa memória.</div>
+      </a>
 
-    <div class="rota">
-      <div class="rota-ponto">
-        <div class="rota-lugar">Galícia</div>
-        <div class="rota-detalhe">Ucrânia ocidental<br>Ponto de partida</div>
-      </div>
-      <div class="rota-seta">→</div>
-      <div class="rota-ponto">
-        <div class="rota-lugar">Gênova</div>
-        <div class="rota-detalhe">Itália · ~dez/1895<br>Porto de embarque</div>
-      </div>
-      <div class="rota-seta">→</div>
-      <div class="rota-ponto">
-        <div class="rota-lugar">Rio de Janeiro</div>
-        <div class="rota-detalhe">Brasil · 20/01/1896<br>28 dias de viagem</div>
-      </div>
-      <div class="rota-seta">→</div>
-      <div class="rota-ponto">
-        <div class="rota-lugar">Paranaguá</div>
-        <div class="rota-detalhe">Paraná · 30/03/1896<br>Vapor Satellite</div>
-      </div>
-      <div class="rota-seta">→</div>
-      <div class="rota-ponto">
-        <div class="rota-lugar">Araucária</div>
-        <div class="rota-detalhe">Paraná · abr/1896<br>Destino final</div>
-      </div>
-    </div>
-
-    <div class="caixa">
-      <strong>O navio: Vapor Attivita.</strong> Partiu de Gênova por volta de 23 de dezembro de 1895. Na lista de passageiros, a família aparece como <em>Dmytro Kutowy</em> e família — sete pessoas no total. Nacionalidade declarada: <strong>austríaca</strong> (porque a Galícia pertencia ao Império Austro-Húngaro). Religião: católica.
-    </div>
-
-    <p>Ao chegar ao Rio de Janeiro em 20 de janeiro de 1896, ficaram alojados na <strong>Hospedaria de Imigrantes</strong> por dois meses. Em 27 de março partiram. Chegaram a Paranaguá três dias depois, e em abril se estabeleceram na <strong>Colônia Francisco Torres</strong>, região de Araucária.</p>
-
-    <div class="caixa caixa-dourada">
-      <strong>Por que "austríacos"?</strong> Em 1896, a Galícia fazia parte do Império Austro-Húngaro. Os ucranianos que viviam lá se declaravam "austríacos" nos documentos — mas sua língua, cultura e religião eram ucranianas. Após 1918, com o fim do império, passaram a se identificar como ucranianos.
-    </div>
-  </section>
-
-  <!-- ══ DESCOBERTAS ══ -->
-  <section id="descobertas">
-    <div class="secao-titulo">Cronograma de descobertas</div>
-    <p class="secao-intro">
-      A pesquisa começou no início de 2024, quando um registro de falecimento num banco de dados genealógico abriu a porta para toda essa história.
-    </p>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-data">Início de 2024</div>
-        <div class="timeline-titulo">O ponto de partida</div>
-        <div class="timeline-texto">Encontrei o registro de falecimento de Emílio Kotowey (bisavô) no FamilySearch. Uma linha num livro antigo — e a pergunta que não para mais: de onde vieram os Kotowey?</div>
-        <span class="tag tag-descoberta">Descoberta</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Abril de 2024</div>
-        <div class="timeline-titulo">Os códices do Arquivo do Paraná</div>
-        <div class="timeline-texto">Obtive os <strong>Códices 817 e 821</strong> do Arquivo Público do Paraná — registros oficiais de chegada de imigrantes em 1895–1896. A família aparece com chegada em Paranaguá em 30/03/1896, com destino à região de Araucária. Primeiro documento brasileiro que confirma a existência deles aqui.</div>
-        <span class="tag tag-documento">Documento oficial</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Maio de 2024</div>
-        <div class="timeline-titulo">A lápide de Bárbara</div>
-        <div class="timeline-texto">Encontrei no site BillionGraves uma foto da lápide de Bárbara Kotowey — inscrita em ucraniano: <strong>ВАРВАРА КОТОВИЙ</strong>. Entrei em contato com Gislaine Ternoski, da comunidade ucraniana de Araucária, que confirmou: o túmulo fica no Cemitério da Igreja Assunção de Nossa Senhora, Colônia Ipiranga, Araucária.</div>
-        <span class="tag tag-contato">Contato</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Julho de 2024</div>
-        <div class="timeline-titulo">Registro de óbito de Bárbara</div>
-        <div class="timeline-texto">Localizei no índice de óbitos de Campo Largo (1923–1929) o registro de falecimento de Bárbara Kotowey: <strong>09 de julho de 1927</strong>, com 70 anos. Ela viveu 31 anos no Brasil após atravessar o oceano.</div>
-        <span class="tag tag-confirmado">Confirmado</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">2024</div>
-        <div class="timeline-titulo">Visita ao túmulo</div>
-        <div class="timeline-texto">Fui pessoalmente ao cemitério em Araucária e encontrei o túmulo de Bárbara Kotowey. A lápide está lá, escrita em ucraniano, a 130 anos de distância da aldeia que ela deixou para trás.</div>
-        <span class="tag tag-visita">Visita</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Novembro de 2024</div>
-        <div class="timeline-titulo">Arquivo Histórico de Araucária</div>
-        <div class="timeline-texto">Contactei o Arquivo Histórico municipal de Araucária. Resultado: sem registros da família. O município tem predominância polonesa; os ucranianos se concentravam em Ipiranga, com pouca documentação no arquivo central.</div>
-        <span class="tag tag-contato">Contato</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Maio de 2025</div>
-        <div class="timeline-titulo">Fórum ucraniano de genealogia</div>
-        <div class="timeline-texto">Participei de um fórum especializado e postei a história da família. Pesquisadores da Ucrânia responderam: o sobrenome original provavelmente é <strong>Кутовий (Kutovy)</strong>, de <em>kut</em> (canto, borda de aldeia) — existente desde 1756. A região de <strong>Proniatyn, perto de Ternopil</strong>, foi apontada como possível localidade de origem.</div>
-        <span class="tag tag-descoberta">Descoberta importante</span>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-data">Maio de 2025</div>
-        <div class="timeline-titulo">Arquivo Imperial de Viena</div>
-        <div class="timeline-texto">Enviei consulta ao arquivo histórico do antigo Império Austro-Húngaro em Viena (HHStA). Resposta: não existem listas nominais completas dos emigrantes de 1895 — apenas relatórios estatísticos. Para ir além, seria necessária pesquisa presencial em Viena.</div>
-        <span class="tag tag-contato">Contato internacional</span>
-      </div>
+      <a href="sobre.html" class="home-card">
+        <div class="home-card-icone">👤</div>
+        <div class="home-card-titulo">Sobre</div>
+        <div class="home-card-desc">Quem conduz esta pesquisa, como ela começou e como entrar em contato.</div>
+      </a>
 
     </div>
   </section>
 
-  <!-- ══ O QUE SABEMOS ══ -->
-  <section id="o-que-sabemos">
-    <div class="secao-titulo">O que sabemos</div>
-    <p class="secao-intro">
-      Fatos confirmados por documentos originais — não por memória ou tradição oral.
-    </p>
-
-    <div class="caixa caixa-azul">
-      <p>✅ &nbsp;A família chegou ao Brasil em <strong>20 de janeiro de 1896</strong>, no vapor <em>Attivita</em>, pelo Rio de Janeiro.</p>
-      <p>✅ &nbsp;Chegaram ao Paraná em <strong>30 de março de 1896</strong>, pelo porto de Paranaguá.</p>
-      <p>✅ &nbsp;O destino registrado era a <strong>Colônia Francisco Torres</strong>, Araucária-PR.</p>
-      <p>✅ &nbsp;Bárbara faleceu em <strong>09/07/1927</strong>, em Campo Largo-PR, com 70 anos.</p>
-      <p>✅ &nbsp;O túmulo de Bárbara está no <strong>Cemitério da Igreja Assunção de Nossa Senhora</strong>, Colônia Ipiranga, Araucária.</p>
-      <p>✅ &nbsp;O pai de Demétrio se chamava <strong>Miguel Kotovieg</strong>.</p>
-      <p>✅ &nbsp;Eudóxia Kotowey faleceu em <strong>28/04/1985</strong>, em Curitiba, com 91 anos.</p>
-    </div>
-
-    <h3>Sobre o sobrenome</h3>
-    <p>Ao longo dos documentos, o sobrenome aparece de dezenas de formas: <em>Kutowy, Kotowy, Kotowi, Kotovei, Kotovieg, Kotoviske, Cotovey, Kotowey...</em> Isso era normal: os escrivães escreviam o que ouviam, em idiomas que não conheciam.</p>
-
-    <div class="caixa">
-      A forma mais provável do sobrenome original é <strong>Кутовий (Kutovy)</strong> em ucraniano — de <em>kut</em>, "canto" ou "extremidade de aldeia". Com o tempo, no Brasil, foi abrasileirado para <strong>Kotowey</strong>.
-    </div>
-
-    <h3>O que ainda buscamos</h3>
-    <table>
-      <tr><th>O que</th><th>Por que importa</th></tr>
-      <tr>
-        <td>Localidade exata na Galícia</td>
-        <td>Sem ela, não conseguimos acessar os registros paroquiais ucranianos com os pais e avós de Demétrio</td>
-      </tr>
-      <tr>
-        <td>Certidão de óbito de Demétrio (~1904)</td>
-        <td>Pode conter o nome dos pais e a cidade de origem</td>
-      </tr>
-      <tr>
-        <td>Registros da Metropolia Ucraniana (Curitiba)</td>
-        <td>A Igreja Greco-Católica pode ter registros das comunidades imigrantes do Paraná</td>
-      </tr>
-      <tr>
-        <td>Registros de Proniatyn no FamilySearch</td>
-        <td>Localidade apontada pelo fórum ucraniano como possível origem</td>
-      </tr>
-    </table>
-  </section>
-
-  <!-- ══ AJUDE ══ -->
   <section id="ajude">
     <div class="secao-titulo">Você pode ajudar</div>
-    <p class="secao-intro">
-      Genealogia é uma pesquisa coletiva. A memória que está dentro de cada um da família pode ser exatamente a peça que falta.
-    </p>
+    <p class="secao-intro">Genealogia é uma pesquisa coletiva. A memória que está dentro de cada um da família pode ser exatamente a peça que falta.</p>
 
     <div class="ajuda-grid">
       <div class="ajuda-card">
         <h4>Memória oral</h4>
-        <p>Alguém já mencionou o nome de uma cidade, aldeia ou lugar "de onde os avós vieram"? Qualquer fragmento — mesmo vago — pode ser um ponto de partida.</p>
+        <p>Alguém já mencionou o nome de uma cidade, aldeia ou lugar "de onde os avós vieram"? Qualquer fragmento pode ser um ponto de partida.</p>
       </div>
       <div class="ajuda-card">
         <h4>Documentos guardados</h4>
@@ -279,7 +106,7 @@
       </div>
       <div class="ajuda-card">
         <h4>Fotos antigas</h4>
-        <p>Fotos de Nicolau, João, Anna, Eudóxia ou Sophia Kotowey — mesmo sem legenda. O verso de uma foto às vezes tem uma data ou nome manuscrito.</p>
+        <p>Fotos de Nicolau, João, Anna, Eudóxia ou Sophia Kotovey* — mesmo sem legenda. O verso de uma foto às vezes tem uma data ou nome manuscrito.</p>
       </div>
       <div class="ajuda-card">
         <h4>Histórias de família</h4>
@@ -290,19 +117,33 @@
     <div class="contato-box">
       <h3>Entre em contato</h3>
       <p>Se você tem qualquer informação, memória, documento ou foto:</p>
-      <p style="margin-top:12px; font-size:13pt;">
+      <p style="margin-top:12px; font-size:16px;">
         <strong>Miguel Kotowey</strong><br>
         <a href="mailto:miguel.kotowey@hotmail.com">miguel.kotowey@hotmail.com</a>
       </p>
     </div>
   </section>
 
-</div><!-- /pagina -->
+</div>
 
 <footer>
-  <p>Família Kotowey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
-  <p style="margin-top:6px;">As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
+  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
+  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
 </footer>
 
+<script>
+  function alternarTema() {
+    var atual = document.documentElement.getAttribute('data-theme');
+    var novo = atual === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', novo);
+    localStorage.setItem('tema', novo);
+  }
+  function toggleMenu() {
+    document.getElementById('nav-mobile').classList.toggle('aberto');
+  }
+  function fecharMenu() {
+    document.getElementById('nav-mobile').classList.remove('aberto');
+  }
+</script>
 </body>
 </html>
