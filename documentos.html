@@ -135,6 +135,16 @@
     background: var(--bg-cinza);
   }
 
+  .doc-pagina-info {
+    color: rgba(255,255,255,0.75);
+    font-family: 'Crimson Pro', serif;
+    font-size: 13px;
+    padding: 6px 2px;
+    white-space: nowrap;
+  }
+
+  .doc-btn:disabled { opacity: 0.3; cursor: default; }
+
   @media (max-width: 640px) {
     .doc-grid { grid-template-columns: 1fr; }
     .doc-viewer-header { flex-direction: column; align-items: flex-start; }
@@ -185,12 +195,19 @@
 
     <div class="doc-grid" id="doc-grid"></div>
 
+    <div class="secao-titulo" style="margin-top:48px">Fórum Ucraniano</div>
+    <p class="secao-intro">Publicação de um fórum ucraniano de genealogia contendo registros sobre a família. Disponível no idioma original (ucraniano) e em tradução para o português. São 4 páginas no total — navegue entre elas com os botões ← →.</p>
+    <div class="doc-grid" id="doc-grid-forum"></div>
+
     <div class="doc-viewer" id="doc-viewer" style="display:none">
       <div class="doc-viewer-header">
         <div class="doc-viewer-titulo" id="doc-viewer-titulo"></div>
         <div class="doc-toggle">
           <button class="doc-btn ativo" id="btn-pagina" onclick="mostrar('pagina')">Página específica</button>
           <button class="doc-btn" id="btn-livro" onclick="mostrar('livro')">Livro completo</button>
+          <button class="doc-btn" id="btn-pag-ant" onclick="navegarPagina(-1)" style="display:none">←</button>
+          <span class="doc-pagina-info" id="doc-pagina-info" style="display:none"></span>
+          <button class="doc-btn" id="btn-pag-prox" onclick="navegarPagina(1)" style="display:none">→</button>
           <button class="doc-btn" onclick="fecharViewer()">← Fechar</button>
         </div>
       </div>
@@ -206,7 +223,7 @@
 </footer>
 
 <script>
-  var docs = [
+  var docsOficiais = [
     {
       id: 'attivita',
       titulo: 'Vapor Attivita — Lista de Passageiros',
@@ -241,12 +258,40 @@
     },
   ];
 
+  var docsForumUcraniano = [
+    {
+      id: 'forum-original',
+      titulo: 'Fórum Ucraniano — Idioma Original',
+      arquivo: 'Fórum Ucraniano de Genealogia',
+      desc: 'Publicação original em ucraniano. 4 páginas com registros genealógicos sobre a família.',
+      paginas: [
+        'documentos/forum_ucraniano/idioma_original/forum_ucraniano_pagina_01.pdf',
+        'documentos/forum_ucraniano/idioma_original/forum_ucraniano_pagina_02.pdf',
+        'documentos/forum_ucraniano/idioma_original/forum_ucraniano_pagina_03.pdf',
+        'documentos/forum_ucraniano/idioma_original/forum_ucraniano_pagina_04.pdf',
+      ],
+    },
+    {
+      id: 'forum-portugues',
+      titulo: 'Fórum Ucraniano — Tradução em Português',
+      arquivo: 'Fórum Ucraniano de Genealogia',
+      desc: 'Tradução para o português das 4 páginas do fórum. Facilita a leitura e interpretação dos registros genealógicos.',
+      paginas: [
+        'documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_01_PT_BR.pdf',
+        'documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_02_PT_BR.pdf',
+        'documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_03_PT_BR.pdf',
+        'documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_04_PT_BR.pdf',
+      ],
+    },
+  ];
+
+  var todosOsDocs = docsOficiais.concat(docsForumUcraniano);
   var docAtivo = null;
   var modoAtivo = 'pagina';
+  var paginaAtual = 0;
 
-  function renderCards() {
-    var grid = document.getElementById('doc-grid');
-    grid.innerHTML = docs.map(function(d) {
+  function renderCards(arr, gridId) {
+    document.getElementById(gridId).innerHTML = arr.map(function(d) {
       return '<div class="doc-card" id="card-' + d.id + '" onclick="selecionarDoc(\'' + d.id + '\')">'
         + '<div class="doc-card-arquivo">' + d.arquivo + '</div>'
         + '<div class="doc-card-titulo">' + d.titulo + '</div>'
@@ -256,23 +301,47 @@
   }
 
   function selecionarDoc(id) {
-    if (docAtivo) {
-      document.getElementById('card-' + docAtivo).classList.remove('ativo');
-    }
+    if (docAtivo) document.getElementById('card-' + docAtivo).classList.remove('ativo');
     docAtivo = id;
     document.getElementById('card-' + id).classList.add('ativo');
 
-    var d = docs.find(function(x) { return x.id === id; });
+    var d = todosOsDocs.find(function(x) { return x.id === id; });
     document.getElementById('doc-viewer-titulo').textContent = d.titulo;
     document.getElementById('doc-viewer').style.display = '';
 
-    modoAtivo = 'pagina';
-    document.getElementById('btn-pagina').classList.add('ativo');
-    document.getElementById('btn-livro').classList.remove('ativo');
-    document.getElementById('btn-livro').style.display = d.livro ? '' : 'none';
-    document.getElementById('doc-iframe').src = encodeURI(d.pagina);
+    var temPaginas = !!(d.paginas && d.paginas.length);
+    document.getElementById('btn-pagina').style.display  = temPaginas ? 'none' : '';
+    document.getElementById('btn-livro').style.display   = (temPaginas || !d.livro) ? 'none' : '';
+    document.getElementById('btn-pag-ant').style.display  = temPaginas ? '' : 'none';
+    document.getElementById('doc-pagina-info').style.display = temPaginas ? '' : 'none';
+    document.getElementById('btn-pag-prox').style.display = temPaginas ? '' : 'none';
+
+    if (temPaginas) {
+      paginaAtual = 0;
+      atualizarNavPaginas(d);
+      document.getElementById('doc-iframe').src = encodeURI(d.paginas[0]);
+    } else {
+      modoAtivo = 'pagina';
+      document.getElementById('btn-pagina').classList.add('ativo');
+      document.getElementById('btn-livro').classList.remove('ativo');
+      document.getElementById('doc-iframe').src = encodeURI(d.pagina);
+    }
 
     document.getElementById('doc-viewer').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function atualizarNavPaginas(d) {
+    document.getElementById('doc-pagina-info').textContent =
+      'Página ' + (paginaAtual + 1) + ' de ' + d.paginas.length;
+    document.getElementById('btn-pag-ant').disabled  = paginaAtual === 0;
+    document.getElementById('btn-pag-prox').disabled = paginaAtual === d.paginas.length - 1;
+  }
+
+  function navegarPagina(delta) {
+    var d = todosOsDocs.find(function(x) { return x.id === docAtivo; });
+    paginaAtual = Math.max(0, Math.min(d.paginas.length - 1, paginaAtual + delta));
+    document.getElementById('doc-iframe').src = encodeURI(d.paginas[paginaAtual]);
+    atualizarNavPaginas(d);
   }
 
   function fecharViewer() {
@@ -287,7 +356,7 @@
 
   function mostrar(modo) {
     if (!docAtivo) return;
-    var d = docs.find(function(x) { return x.id === docAtivo; });
+    var d = todosOsDocs.find(function(x) { return x.id === docAtivo; });
     modoAtivo = modo;
     document.getElementById('btn-pagina').classList.toggle('ativo', modo === 'pagina');
     document.getElementById('btn-livro').classList.toggle('ativo', modo === 'livro');
@@ -307,9 +376,10 @@
     document.getElementById('nav-mobile').classList.remove('aberto');
   }
 
-  renderCards();
+  renderCards(docsOficiais, 'doc-grid');
+  renderCards(docsForumUcraniano, 'doc-grid-forum');
   var hash = window.location.hash.slice(1);
-  if (hash && docs.find(function(x) { return x.id === hash; })) {
+  if (hash && todosOsDocs.find(function(x) { return x.id === hash; })) {
     selecionarDoc(hash);
   }
 </script>
