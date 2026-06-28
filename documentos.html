@@ -237,7 +237,7 @@
       arquivo: 'Arquivo Público do Paraná',
       desc: 'Registro oficial de chegada de imigrantes ao Paraná entre 1895 e 1896. Contém quatro registros da família Kotovey em páginas distintas.',
       pagina: 'documentos/codices e livros/821 - registro de chegada/paginas_exatas_4_registros.pdf',
-      livro:  'documentos/codices e livros/821 - registro de chegada/Códice 821.pdf',
+      livro:  null,
     },
   ];
 
@@ -269,6 +269,7 @@
     modoAtivo = 'pagina';
     document.getElementById('btn-pagina').classList.add('ativo');
     document.getElementById('btn-livro').classList.remove('ativo');
+    document.getElementById('btn-livro').style.display = d.livro ? '' : 'none';
     document.getElementById('doc-iframe').src = encodeURI(d.pagina);
 
     document.getElementById('doc-viewer').scrollIntoView({ behavior: 'smooth', block: 'start' });
