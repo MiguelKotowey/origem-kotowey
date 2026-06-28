@@ -1,0 +1,8 @@
+IMAGENS — recursos visuais do site (não são fotos da família)
+==============================================================
+
+  mapas/       → mapas da Galícia, rota de imigração, Araucária
+                 ex: mapa_galicia_1895.jpg, rota_imigracao.png
+
+  (raiz)       → ícones, ilustrações e elementos visuais usados no HTML
+                 ex: favicon.ico, brasao_kotowey.png

@@ -1,0 +1,16 @@
+FOTOS — imagens pessoais da família
+====================================
+
+Subpastas:
+
+  familia/     → retratos e fotos de membros da família
+                 ex: nicolau_kotowey.jpg, anna_brecailo_1940.jpg
+
+  cemiterio/   → fotos do cemitério e túmulo de Bárbara (Araucária)
+                 ex: tumulo_barbara_frente.jpg, cemiterio_ipiranga.jpg
+
+  viagem/      → fotos de lugares relacionados à imigração
+                 ex: colonia_ipiranga_hoje.jpg, araucaria_vista.jpg
+
+Formato recomendado: JPG ou WEBP
+Resolução: mínimo 800px de largura para exibição no site

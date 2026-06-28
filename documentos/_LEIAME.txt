@@ -1,0 +1,19 @@
+DOCUMENTOS — scans e PDFs de registros históricos
+===================================================
+
+Subpastas:
+
+  certidoes/        → certidões de nascimento, casamento e óbito
+                      ex: obito_barbara_1927.pdf, nascimento_demetrio_filho.pdf
+
+  codices/          → códices 817 e 821 do Arquivo Público do Paraná,
+                      lista de passageiros do vapor Attivita, caderneta RJ
+                      ex: codice_817_paranagua.pdf, attivita_passageiros.pdf
+
+  correspondencias/ → e-mails e respostas de arquivos e instituições
+                      ex: resposta_viena_2025.pdf, resposta_araucaria.pdf
+
+  lapides/          → fotos e transcrições de lápides
+                      ex: lapide_barbara_ucraniano.jpg, lapide_transcricao.txt
+
+Formato recomendado: PDF para documentos, JPG para scans de imagens
