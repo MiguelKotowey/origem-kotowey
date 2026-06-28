@@ -353,13 +353,8 @@
   }
 
   function fecharViewer() {
-    var veioDeOutraPagina = document.referrer && !document.referrer.includes('documentos.html');
-    if (veioDeOutraPagina) {
-      history.back();
-    } else {
-      document.getElementById('doc-viewer').style.display = 'none';
-      document.getElementById('card-' + docAtivo).scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
+    document.getElementById('doc-viewer').style.display = 'none';
+    document.getElementById('card-' + docAtivo).scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   function mostrar(modo) {
