@@ -697,6 +697,54 @@ dialog.lightbox img {
 
 .lightbox-fechar:hover { background: rgba(255,255,255,0.15); color: white; }
 
+/* ══ BADGES DE EVIDÊNCIA ══ */
+.badge-confirmado,
+.badge-especulacao {
+  display: inline-block;
+  font-family: 'Crimson Pro', serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  border-radius: 20px;
+  vertical-align: middle;
+  margin-left: 6px;
+}
+
+.badge-confirmado {
+  background: #e6f4ea;
+  color: #1a5c2a;
+  border: 1px solid #a8d5b0;
+}
+
+.badge-especulacao {
+  background: #fff8e6;
+  color: #7a4800;
+  border: 1px solid #f0c060;
+}
+
+[data-theme="dark"] .badge-confirmado {
+  background: #1a5c2a;
+  color: #a8ffb8;
+  border-color: #2a7a3a;
+}
+
+[data-theme="dark"] .badge-especulacao {
+  background: #5c3d1a;
+  color: #ffd9a0;
+  border-color: #8a6030;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .badge-confirmado {
+    background: #1a5c2a; color: #a8ffb8; border-color: #2a7a3a;
+  }
+  :root:not([data-theme="light"]) .badge-especulacao {
+    background: #5c3d1a; color: #ffd9a0; border-color: #8a6030;
+  }
+}
+
 /* ══ REFERÊNCIA DOCUMENTAL ══ */
 .doc-refs {
   display: flex;
