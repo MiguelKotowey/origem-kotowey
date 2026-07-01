@@ -14,6 +14,7 @@ window.PESSOAS = {
       ["Sepultamento", "Não localizado — hipótese: Cemitério dos Palhanos"],
     ],
     nota: "O local de sepultamento de Demétrio é uma questão em aberto. Por ter falecido em 1904, pode estar em cemitério distinto do de Bárbara. <b>Hipótese não verificada.</b>",
+    docs: '<a class="btn" href="documentos.html#cemiterio-palhano">Recorte de jornal — cemitério →</a>',
   },
   barbara: {
     nome: "Bárbara (ou Baltina) Kotovey", orig: "Varvara Kutovy · Варвара Котовий",
