@@ -62,6 +62,9 @@ var DOCS = [
   { fonte: "Fórum Ucraniano de Genealogia", titulo: "Tópico sobre o sobrenome — Кутовий (português)",
     desc: "Tradução em português do tópico do fórum sobre a forma que seria a correta do sobrenome, Кутовий (Kutovy).",
     pagina: "documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_topico_secundario_01.pdf" },
+  { fonte: "Imprensa · Recortes", id: "cemiterio-palhano", titulo: "Reportagem — “O cemitério que morreu” (Paianas)",
+    desc: "Recorte de jornal (“DP Especial”) sobre um cemitério abandonado da região. Relaciona-se à hipótese do <b>Cemitério dos Palhanos</b> como possível local de sepultamento de Demétrio (†1904).",
+    imagem: "documentos/imprensa/jornal_cemiterio_palhano.jpg" },
 ];
 
 function href(p) { return encodeURI(BASE + p); }
@@ -74,7 +77,8 @@ document.getElementById("docs").innerHTML = fontes.map(function (f) {
     if (d.pagina) links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.pagina) + '">Página exata</a>';
     if (d.livro)  links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.livro) + '">Livro completo</a>';
     if (d.multi)  links += d.multi.map(function (p, i) { return '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(p) + '">Pág. ' + (i + 1) + "</a>"; }).join("");
-    return '<div class="dcard"><div class="fonte">' + d.fonte + "</div><h3>" + d.titulo + "</h3><p>" + d.desc + '</p><div class="links">' + links + "</div></div>";
+    if (d.imagem) links += '<a class="doclink" target="_blank" rel="noopener" href="' + href(d.imagem) + '">Ver recorte →</a>';
+    return '<div class="dcard"' + (d.id ? ' id="' + d.id + '"' : "") + '><div class="fonte">' + d.fonte + "</div><h3>" + d.titulo + "</h3><p>" + d.desc + '</p><div class="links">' + links + "</div></div>";
   }).join("");
   return '<div class="fonte-group"><div class="gen-label">' + f + '</div><div class="dcards">' + cards + "</div></div>";
 }).join("");
