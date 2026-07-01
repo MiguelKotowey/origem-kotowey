@@ -10,3 +10,7 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+### Arquivos internos — não publicar
+.claude/
+VOZ.MD

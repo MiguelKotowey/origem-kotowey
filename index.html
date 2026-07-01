@@ -1,162 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="">
+<html lang="pt-BR">
 <head>
-<script>
-  (function() {
-    var saved = localStorage.getItem('tema');
-    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var tema = saved || (prefereDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', tema);
-  })();
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Família Kotovey — De onde viemos</title>
+<title>Arquivo Kotovey — Pesquisa das origens</title>
+<meta name="description" content="Registro público da pesquisa genealógica sobre a origem da família Kotovey — imigrantes da Galícia ao Paraná em 1896.">
+<script>(function(){var s;try{s=localStorage.getItem('tema')}catch(e){}var d=matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="inicio">
 
-<nav>
-  <div class="nav-inner">
-    <div class="nav-marca">Família <span>Kotovey</span></div>
-    <div class="nav-links">
-      <a href="index.html" class="ativo">Início</a>
-      <a href="familia.html">A Família</a>
-      <a href="viagem.html">A Viagem</a>
-      <a href="documentos.html">Documentos</a>
-      <a href="galeria.html">Galeria</a>
-      <a href="galeria-renato.html">Galeria Renato</a>
-      <a href="sobre.html">Sobre</a>
+<header class="hero">
+  <div class="hero-ghost">1896</div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">Arquivo da família</p>
+    <h1>Kotovey<span class="cir">Кутовий · КОТОВИЙ · Kutovy</span></h1>
+    <p class="hero-sub">Este site tem o objetivo de armazenar informações coletadas referentes à origem da família — registros, documentos, acontecimentos, fotografias, entre outros.<br><br>A pesquisa é conduzida por Miguel Augusto Kotowey, por curiosidade e interesse no assunto, sem fins lucrativos ou busca por algum tipo de dupla cidadania.<br><br>Aqui, considere que nosso sobrenome sofreu mudanças e variações: você verá pessoas cuja grafia talvez não lhe seja conhecida. Por isso, priorizo a grafia que encontro na maior parte dos documentos de cada pessoa.</p>
+    <div class="btn-row">
+      <a class="btn primary" href="arvore.html">Ver a árvore →</a>
+      <a class="btn" href="historia.html">A história da pesquisa</a>
     </div>
-    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
-    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="index.html" onclick="fecharMenu()">Início</a>
-    <a href="familia.html" onclick="fecharMenu()">A Família</a>
-    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
-    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
-    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
-    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
-    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
-  </div>
-</nav>
+</header>
 
-<div class="hero">
-  <div class="hero-content">
-    <h1>Família Kotovey</h1>
-    <div class="hero-sub">Pesquisa de origem — Galícia, 1896</div>
-    <p>Em 1895, Demétrio e Bárbara Kotowey partiram da Galícia — hoje Ucrânia ocidental — com cinco filhos. Chegaram ao Brasil em janeiro de 1896 e se estabeleceram na região de Araucária, Paraná. Esta pesquisa documenta o que foi encontrado sobre essa origem e o que permanece em aberto.</p>
-  </div>
-</div>
+<main class="page">
+  <div class="wrap">
 
-<div class="pagina">
-
-  <section id="resumo">
-    <div class="secao-titulo">Resumo</div>
-    <p>Este site reúne informações sobre a origem da família, focando na ascendência, ou seja, buscando sempre o elo mais alto da árvore genealógica. Eu, Miguel, tenho feito conforme tenho tempo e, tenho registrado sempre que possível.</p>
-  </section>
-
-  <section id="estado">
-    <div class="secao-titulo">O que foi estabelecido</div>
-    <p class="secao-intro">Fatos confirmados por documentos originais localizados até o momento.</p>
-
-    <div class="caixa caixa-azul">
-      <p><span class="badge-confirmado">Confirmado por documento</span> &nbsp;A família embarcou em Gênova em dezembro de 1895 no vapor <em>Attivita</em> e chegou ao Rio de Janeiro em <strong>20 de janeiro de 1896</strong>.</p>
-      <p><span class="badge-confirmado">Confirmado por documento</span> &nbsp;Após dois meses na Hospedaria de Imigrantes de Pinheiros, chegaram a Paranaguá em <strong>30 de março de 1896</strong> com destino à <strong>Colônia Francisco Torres</strong>, Araucária-PR.</p>
-      <p><span class="badge-confirmado">Confirmado por documento</span> &nbsp;Bárbara Kotowey faleceu em <strong>9 de julho de 1927</strong>. O túmulo está no Cemitério da Igreja Assunção de Nossa Senhora, Colônia Ipiranga, Araucária — com inscrição em ucraniano: <em>ВАРВАРА КОТОВИЙ</em>.</p>
-      <p><span class="badge-confirmado">Confirmado por documento</span> &nbsp;O sobrenome original é provavelmente <strong>Кутовий (Kutovy)</strong> em ucraniano. No Brasil, foi registrado de dezenas de formas diferentes pelos escrivães — <em>Kutowy, Kotovei, Kotowey</em>, entre outros. Cada ramo da família carregou adiante a grafia que ficou nos seus documentos, e por isso o sobrenome ainda é escrito de mais de uma forma entre os descendentes.</p>
-      <div class="doc-refs">
-        <a href="documentos.html#attivita" class="doc-ref">Vapor Attivita — lista de passageiros</a>
-        <a href="documentos.html#hospedaria" class="doc-ref">Hospedaria de Pinheiros</a>
-        <a href="documentos.html#codice817" class="doc-ref">Códice 817 — Paranaguá</a>
+    <section class="bloco">
+      <p class="eyebrow">Navegue pelo arquivo</p>
+      <div class="nav-grid">
+        <a class="nav-card" href="historia.html"><span class="idx">01</span><h3>História da família</h3><p>A trajetória da família, do registro mais antigo aos acontecimentos mais recentes.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="arvore.html"><span class="idx">02</span><h3>Árvore genealógica</h3><p>O casal fundador, os sete filhos e a linha pesquisada — com perfil de cada pessoa.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="documentos.html"><span class="idx">03</span><h3>Documentos</h3><p>Livros de imigração, códices, cartas de arquivos — sempre com a fonte indicada.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="galeria.html"><span class="idx">04</span><h3>Galeria</h3><p>Cemitérios, igrejas e arquivos visitados pessoalmente durante a pesquisa.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="familias.html"><span class="idx">05</span><h3>Famílias</h3><p>Uma página para cada sobrenome que cruza a história dos Kotovey.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="arte.html"><span class="idx">06</span><h3>Galeria artística</h3><p>As obras de Renato Kotowey, organizadas por período e técnica.</p><span class="go">Abrir →</span></a>
+        <a class="nav-card" href="diario.html"><span class="idx">07</span><h3>Diário da pesquisa</h3><p>A cronologia dos documentos e registros encontrados, na ordem em que apareceram.</p><span class="go">Abrir →</span></a>
       </div>
-    </div>
+    </section>
 
-    <div class="caixa caixa-dourada" style="margin-top: 16px; font-size:15px; color: var(--texto-suave);">
-      A pesquisa está em andamento. A questão central — a localidade exata de origem na Galícia — permanece sem resposta documental. Os próximos passos apontam para os arquivos regionais ucranianos e os registros paroquiais greco-católicos do FamilySearch.
-    </div>
-  </section>
+    <section class="bloco">
+      <p class="eyebrow">Como esta pesquisa é feita</p>
+      <h2 class="secao-titulo">Metodologia de pesquisa</h2>
+      <p class="intro">Desde o início de 2024 a pesquisa é feita manualmente, inspirada e arquitetada no site FamilySearch — porém tomo a liberdade de armazenar os documentos e/ou indícios pessoalmente. A coleta, leitura de fontes, cruzamento de documentos e validação são feitos à mão, documento por documento. A análise, hipóteses e conclusões são humanas e, consequentemente, muitas vezes carentes de informação.</p>
+      <div class="nota">A pesquisa, de modo geral como o que foi citado acima, é feita 100% à mão. Agora, em 2026, passei a utilizar uma ferramenta de IA para um tipo de big-data familiar, sincronizando com um cérebro-vivo como base de conhecimento em Obsidian. Ressalto que toda descoberta registrada aqui nasce de trabalho humano.</div>
+      <div class="nota"><b>Importante:</b> caso surja interesse em acessar e manipular o site FamilySearch, considere que um ajuste errado pode perder uma linhagem da família por completo. É preciso ter cautela — a curva de aprendizado do site não é curta. Isso vale para outros, como o myHeritage, entre outros. O FamilySearch é gratuito e livre para manipulação de registros.</div>
+    </section>
 
-  <section id="secoes">
-    <div class="secao-titulo">Documentação</div>
+  </div>
+</main>
 
-    <div class="home-grid">
-
-      <a href="familia.html" class="home-card">
-        <div class="home-card-icone">👨‍👩‍👧‍👦</div>
-        <div class="home-card-titulo">A Família</div>
-        <div class="home-card-desc">Demétrio e Bárbara Kotowey, os sete filhos e o que foi apurado sobre cada um. Fatos confirmados e questões em aberto identificadas por ramo.</div>
-      </a>
-
-      <a href="viagem.html" class="home-card">
-        <div class="home-card-icone">🚢</div>
-        <div class="home-card-titulo">A Viagem</div>
-        <div class="home-card-desc">A rota da Galícia ao Paraná em 1895–1896 e o cronograma das descobertas da pesquisa, em ordem cronológica.</div>
-      </a>
-
-      <a href="documentos.html" class="home-card">
-        <div class="home-card-icone">📄</div>
-        <div class="home-card-titulo">Documentos</div>
-        <div class="home-card-desc">Fontes primárias localizadas: listas de passageiros, registros de chegada, hospedaria, correspondência com arquivos históricos.</div>
-      </a>
-
-      <a href="galeria.html" class="home-card">
-        <div class="home-card-icone">📷</div>
-        <div class="home-card-titulo">Galeria</div>
-        <div class="home-card-desc">Fotografias do túmulo de Bárbara, da Igreja Assunção de Nossa Senhora em Araucária e dos documentos encontrados.</div>
-      </a>
-
-      <a href="galeria-renato.html" class="home-card">
-        <div class="home-card-icone">🎨</div>
-        <div class="home-card-titulo">Galeria Renato</div>
-        <div class="home-card-desc">Homenagem ao tio Renato, que pintava quadros. Uma forma de guardar essa memória.</div>
-      </a>
-
-      <a href="sobre.html" class="home-card">
-        <div class="home-card-icone">👤</div>
-        <div class="home-card-titulo">Sobre</div>
-        <div class="home-card-desc">Quem conduz esta pesquisa, como ela começou e como entrar em contato.</div>
-      </a>
-
-    </div>
-  </section>
-
-  <section id="contribuicoes">
-    <div class="secao-titulo">Contribuições</div>
-    <p class="secao-intro">Genealogia depende de fontes. Descendentes dos sete ramos da família podem ter documentos, fotografias ou memória oral que a pesquisa documental não alcança.</p>
-
-    <p>Certidões antigas, cartas, fotografias sem legenda, referências a lugares "de onde os avós vieram" — qualquer fragmento pode abrir uma linha de investigação. O verso de uma fotografia com uma data ou nome manuscrito já é um documento.</p>
-
-    <div class="contato-box">
-      <p>Contribuições e contato:</p>
-      <p style="margin-top:10px; font-size:16px;">
-        <strong>Miguel Kotowey</strong> &nbsp;·&nbsp;
-        <a href="mailto:miguel.kotowey@hotmail.com">miguel.kotowey@hotmail.com</a>
-      </p>
-    </div>
-  </section>
-
-</div>
-
-<footer>
-  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
-  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
-</footer>
-
-<script>
-  function alternarTema() {
-    var atual = document.documentElement.getAttribute('data-theme');
-    var novo = atual === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', novo);
-    localStorage.setItem('tema', novo);
-  }
-  function toggleMenu() {
-    document.getElementById('nav-mobile').classList.toggle('aberto');
-  }
-  function fecharMenu() {
-    document.getElementById('nav-mobile').classList.remove('aberto');
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>

@@ -1,164 +1,39 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="">
+<html lang="pt-BR">
 <head>
-<script>
-  (function() {
-    var saved = localStorage.getItem('tema');
-    var prefereDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var tema = saved || (prefereDark ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', tema);
-  })();
-</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Galeria — Kotovey</title>
+<title>Galeria — Arquivo Kotovey</title>
+<script>(function(){var s;try{s=localStorage.getItem('tema')}catch(e){}var d=matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.setAttribute('data-theme',s||(d?'dark':'light'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="galeria">
 
-<nav>
-  <div class="nav-inner">
-    <div class="nav-marca">Família <span>Kotovey</span></div>
-    <div class="nav-links">
-      <a href="index.html">Início</a>
-      <a href="familia.html">A Família</a>
-      <a href="viagem.html">A Viagem</a>
-      <a href="documentos.html">Documentos</a>
-      <a href="galeria.html" class="ativo">Galeria</a>
-      <a href="galeria-renato.html">Galeria Renato</a>
-      <a href="sobre.html">Sobre</a>
+<main class="page">
+  <div class="wrap">
+    <p class="eyebrow">Galeria</p>
+    <h1 class="secao-titulo">O que a pesquisa foi ver de perto</h1>
+    <p class="intro">Em 2024, o Cemitério da Igreja Assunção de Nossa Senhora, em Araucária — PR, foi visitado para localizar o túmulo de Bárbara — encontrado, com a lápide inscrita em ucraniano. Clique em qualquer imagem para ampliar.</p>
+
+    <div class="galeria">
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/tumulo_real_de_barbara_foto_01.jpeg" alt="Túmulo de Bárbara"><figcaption><b>Cemitério · Araucária</b>Túmulo de Bárbara, no Cemitério da Igreja Assunção de Nossa Senhora, Colônia Ipiranga.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/lapide_real_de_barbara.jpeg" alt="Lápide de Bárbara"><figcaption><b>Lápide</b>Inscrição em ucraniano: ВАРВАРА КОТОВИЙ.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/lapide_real_de_barbara_visao_central_.jpeg" alt="Lápide de Bárbara — visão central"><figcaption><b>Lápide · detalhe</b>Visão central da inscrição.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/tumulo_real_de_barbara_foto_02.jpeg" alt="Túmulo de Bárbara — outro ângulo"><figcaption><b>Cemitério · Araucária</b>Túmulo de Bárbara — ângulo complementar.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/visão_frontal_da_igreja.jpeg" alt="Igreja — visão frontal"><figcaption><b>Igreja Assunção de N. Sra.</b>Centro da comunidade ucraniana de Araucária desde a imigração.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/visão_lateral_da_igreja.jpeg" alt="Igreja — visão lateral"><figcaption><b>Igreja · lateral</b>Guajuvira, Araucária.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/visão_interna_da_igreja.jpeg" alt="Igreja — interior"><figcaption><b>Igreja · interior</b>Interior da Igreja Greco-Católica Ucraniana.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/cruz_da_igreja.jpeg" alt="Cruz da igreja"><figcaption><b>Detalhe</b>Cruz da igreja.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/placa_da_igreja_atualmente.jpeg" alt="Placa da igreja"><figcaption><b>Placa</b>Identificação atual da igreja.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/foto_antiga_da_igreja.webp" alt="Foto antiga da igreja"><figcaption><b>Arquivo histórico</b>Registro antigo da igreja.</figcaption></figure>
+      <figure class="gitem"><img loading="lazy" src="imagens/viagem_para_araucaria/fernando_e_familia_na_igreja.jpeg" alt="Família diante da igreja"><figcaption><b>Visita · 2024</b>Família diante da Igreja Assunção de Nossa Senhora, em Araucária.</figcaption></figure>
     </div>
-    <button id="btn-tema" onclick="alternarTema()" aria-label="Alternar modo claro/escuro">☀ / ☾</button>
-    <button class="nav-hamburguer" onclick="toggleMenu()" aria-label="Menu">☰</button>
   </div>
-  <div class="nav-mobile" id="nav-mobile">
-    <a href="index.html" onclick="fecharMenu()">Início</a>
-    <a href="familia.html" onclick="fecharMenu()">A Família</a>
-    <a href="viagem.html" onclick="fecharMenu()">A Viagem</a>
-    <a href="documentos.html" onclick="fecharMenu()">Documentos</a>
-    <a href="galeria.html" onclick="fecharMenu()">Galeria</a>
-    <a href="galeria-renato.html" onclick="fecharMenu()">Galeria Renato</a>
-    <a href="sobre.html" onclick="fecharMenu()">Sobre</a>
-  </div>
-</nav>
+</main>
 
-<div class="hero hero-pequeno">
-  <div class="hero-content">
-    <h1>Galeria</h1>
-    <div class="hero-sub">Registros visuais da pesquisa</div>
-  </div>
-</div>
-
-<div class="pagina">
-
-  <section id="visita-araucaria">
-    <div class="secao-titulo">Visita a Araucária — 2024</div>
-    <p class="secao-intro">Em 2024, o Cemitério da Igreja Assunção de Nossa Senhora — na Colônia Guajuvira, em Araucária — foi visitado pessoalmente. O objetivo era localizar o túmulo de Bárbara Kotovey*, sepultada ali desde julho de 1927. A lápide foi encontrada com a inscrição em ucraniano: <em>ВАРВАРА КОТОВИЙ</em>.</p>
-
-    <section id="igreja">
-      <h3>A Igreja Assunção de Nossa Senhora</h3>
-      <p>A Igreja Greco-Católica Ucraniana da Assunção de Nossa Senhora, em Guajuvira, é o centro da comunidade ucraniana de Araucária desde os primeiros tempos da imigração. É ali que estão os registros mais antigos das famílias ucranianas da região — e onde Bárbara Kotovey* foi sepultada.</p>
-
-      <div class="galeria-grid">
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/visão_frontal_da_igreja.jpeg" alt="Vista frontal da Igreja Assunção de Nossa Senhora, Guajuvira, Araucária">
-          <div class="galeria-legenda">Vista frontal da Igreja Assunção de Nossa Senhora</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/visão_lateral_da_igreja.jpeg" alt="Vista lateral da Igreja Assunção de Nossa Senhora">
-          <div class="galeria-legenda">Vista lateral da igreja</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/visão_interna_da_igreja.jpeg" alt="Interior da Igreja Assunção de Nossa Senhora">
-          <div class="galeria-legenda">Interior da igreja</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/cruz_da_igreja.jpeg" alt="Cruz da Igreja Assunção de Nossa Senhora">
-          <div class="galeria-legenda">Cruz da igreja</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/placa_da_igreja_atualmente.jpeg" alt="Placa da Igreja Assunção de Nossa Senhora — vista atual">
-          <div class="galeria-legenda">Placa identificadora — vista atual</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/foto_antiga_da_igreja.webp" alt="Fotografia antiga da Igreja Assunção de Nossa Senhora">
-          <div class="galeria-legenda">Fotografia antiga da igreja</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="tumulo">
-      <h3>O túmulo de Bárbara Kotovey*</h3>
-      <p>O túmulo de Bárbara Kotovey* está no cemitério da própria igreja. A lápide está inscrita em ucraniano — um registro da identidade cultural preservada mesmo após décadas no Brasil. Bárbara faleceu em 09 de julho de 1927, em Campo Largo, com cerca de 70 anos. Está sepultada em Araucária desde então.</p>
-
-      <div class="galeria-grid">
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/tumulo_real_de_barbara_foto_01.jpeg" alt="Túmulo de Bárbara Kotovey*, Cemitério da Igreja Assunção de Nossa Senhora, Araucária">
-          <div class="galeria-legenda">Túmulo de Bárbara Kotovey*</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/tumulo_real_de_barbara_foto_02.jpeg" alt="Túmulo de Bárbara Kotovey* — ângulo complementar">
-          <div class="galeria-legenda">Túmulo — ângulo complementar</div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/lapide_real_de_barbara.jpeg" alt="Lápide de Bárbara Kotovey* — inscrição em ucraniano: ВАРВАРА КОТОВИЙ">
-          <div class="galeria-legenda">Lápide — inscrição em ucraniano: <em>ВАРВАРА КОТОВИЙ</em></div>
-        </div>
-        <div class="galeria-item" onclick="abrirFoto(this)">
-          <img src="imagens/viagem_para_araucaria/lapide_real_de_barbara_visao_central_.jpeg" alt="Lápide de Bárbara Kotovey* — visão central da inscrição em ucraniano">
-          <div class="galeria-legenda">Lápide — visão central da inscrição</div>
-        </div>
-      </div>
-    </section>
-
-  </section>
-
-</div>
-
-<!-- Lightbox -->
-<dialog class="lightbox" id="lightbox" onclick="fecharLightbox(event)">
-  <button class="lightbox-fechar" onclick="document.getElementById('lightbox').close()" aria-label="Fechar">×</button>
-  <img id="lightbox-img" src="" alt="">
-  <div class="lightbox-legenda" id="lightbox-legenda"></div>
-</dialog>
-
-<footer>
-  <p>Família Kotovey — Pesquisa das Origens &nbsp;·&nbsp; Conduzida por Miguel Kotowey &nbsp;·&nbsp; 2026</p>
-  <p>As informações apresentadas são baseadas em pesquisa documental e estão sujeitas a atualização.</p>
-</footer>
-
-<script>
-  function abrirFoto(item) {
-    var img = item.querySelector('img');
-    var legenda = item.querySelector('.galeria-legenda').textContent;
-    document.getElementById('lightbox-img').src = img.src;
-    document.getElementById('lightbox-img').alt = img.alt;
-    document.getElementById('lightbox-legenda').textContent = legenda;
-    document.getElementById('lightbox').showModal();
-  }
-
-  function fecharLightbox(e) {
-    if (e.target === document.getElementById('lightbox')) {
-      document.getElementById('lightbox').close();
-    }
-  }
-
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') document.getElementById('lightbox').close();
-  });
-
-  function alternarTema() {
-    var atual = document.documentElement.getAttribute('data-theme');
-    var novo = atual === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', novo);
-    localStorage.setItem('tema', novo);
-  }
-  function toggleMenu() {
-    document.getElementById('nav-mobile').classList.toggle('aberto');
-  }
-  function fecharMenu() {
-    document.getElementById('nav-mobile').classList.remove('aberto');
-  }
-</script>
+<script src="app.js"></script>
 </body>
 </html>
