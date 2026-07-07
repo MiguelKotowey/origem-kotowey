@@ -18,6 +18,13 @@
     <h1 class="secao-titulo">Fontes primárias, com origem indicada</h1>
     <p class="intro">Livros de imigração, códices, cartas de arquivos e registros paroquiais. Cada documento traz a fonte de onde veio. Onde existe, há link para a página exata e para o livro completo.</p>
     <div id="docs"></div>
+
+    <div id="possibilidades" style="margin-top:72px">
+      <p class="eyebrow">Possibilidades</p>
+      <h2 class="secao-titulo">Pistas em investigação</h2>
+      <p class="intro">Documentos reais, de fontes verificáveis — mas cuja ligação com a família ainda <b>não foi comprovada</b>. Ficam separados dos documentos acima justamente por isso: são pistas em estudo, não fatos estabelecidos.</p>
+      <div id="docs-possiveis"></div>
+    </div>
   </div>
 </main>
 
@@ -62,26 +69,43 @@ var DOCS = [
   { fonte: "Fórum Ucraniano de Genealogia", titulo: "Tópico sobre o sobrenome — Кутовий (português)",
     desc: "Tradução em português do tópico do fórum sobre a forma que seria a correta do sobrenome, Кутовий (Kutovy).",
     pagina: "documentos/forum_ucraniano/idioma_portugues/forum_ucraniano_pagina_topico_secundario_01.pdf" },
-  { fonte: "Imprensa · Recortes", id: "cemiterio-palhano", titulo: "Reportagem — “O cemitério que morreu” (Paianas)",
-    desc: "Recorte de jornal (“DP Especial”) sobre um cemitério abandonado da região. Relaciona-se à hipótese do <b>Cemitério dos Palhanos</b> como possível local de sepultamento de Demétrio (†1904).",
-    imagem: "documentos/imprensa/jornal_cemiterio_palhano.jpg" },
+];
+
+var POSSIVEIS = [
+  { id: "kutowy-geneteka", fonte: "AGAD · Varsóvia — Polônia (via índice Geneteka)",
+    titulo: "Casamento de Bazyli Kutowy — Tarnopol, 1889",
+    desc: "Registro paroquial de 14/10/1889, Tarnopol — então Áustria-Hungria, hoje Ternopil, Ucrânia. Bazyli Kutowy, natural de <b>Proniatyn</b>, casa-se com Marcella Marmil; uma das testemunhas é um Kutowy da aldeia vizinha de Kutkowce. É o primeiro registro europeu localizado com o sobrenome na grafia <b>Kutowy</b> na região apontada como possível origem. Nenhuma ligação com a família Kotovey foi comprovada até o momento.",
+    pagina: "documentos/possibilidades/registro_casamento_bazyli_kutowy_1889.jpg" },
+  { fonte: "AGAD · Varsóvia — Polônia (via índice Geneteka)",
+    titulo: "Óbito de Franciszka Kutowy — Tarnopol, 1902",
+    desc: "Registro de óbito de 09/09/1902, Tarnopol — então Áustria-Hungria, hoje Ternopil, Ucrânia: Franciszka Kutowy, de 1 ano, filha de Bazyli e Marcella — o mesmo núcleo familiar do registro de casamento de 1889. Sem ligação comprovada com a família Kotovey.",
+    pagina: "documentos/possibilidades/registro_obito_franciszka_kutowy_1902.jpg" },
+  { id: "cemiterio-palhano", fonte: "Imprensa regional — Paraná",
+    titulo: "Recorte de jornal — Cemitério dos Palhanos",
+    desc: "Recorte de jornal sobre o Cemitério dos Palhanos, na região de Araucária — PR: cemitério antigo que era compartilhado por ucranianos e poloneses antes de as comunidades se separarem. Levantado como possível local de sepultamento de Demétrio, falecido por volta de 1904. Não verificado.",
+    pagina: "documentos/imprensa/jornal_cemiterio_palhano.jpg" },
 ];
 
 function href(p) { return encodeURI(BASE + p); }
-var fontes = [];
-DOCS.forEach(function (d) { if (fontes.indexOf(d.fonte) < 0) fontes.push(d.fonte); });
 
-document.getElementById("docs").innerHTML = fontes.map(function (f) {
-  var cards = DOCS.filter(function (d) { return d.fonte === f; }).map(function (d) {
-    var links = "";
-    if (d.pagina) links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.pagina) + '">Página exata</a>';
-    if (d.livro)  links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.livro) + '">Livro completo</a>';
-    if (d.multi)  links += d.multi.map(function (p, i) { return '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(p) + '">Pág. ' + (i + 1) + "</a>"; }).join("");
-    if (d.imagem) links += '<a class="doclink" target="_blank" rel="noopener" href="' + href(d.imagem) + '">Ver recorte →</a>';
-    return '<div class="dcard"' + (d.id ? ' id="' + d.id + '"' : "") + '><div class="fonte">' + d.fonte + "</div><h3>" + d.titulo + "</h3><p>" + d.desc + '</p><div class="links">' + links + "</div></div>";
+function renderDocs(lista, elId) {
+  var fontes = [];
+  lista.forEach(function (d) { if (fontes.indexOf(d.fonte) < 0) fontes.push(d.fonte); });
+  document.getElementById(elId).innerHTML = fontes.map(function (f) {
+    var cards = lista.filter(function (d) { return d.fonte === f; }).map(function (d) {
+      var links = "";
+      var rotulo = (d.pagina && /\.(jpg|jpeg|png)$/i.test(d.pagina)) ? "Ver imagem" : "Página exata";
+      if (d.pagina) links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.pagina) + '">' + rotulo + '</a>';
+      if (d.livro)  links += '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(d.livro) + '">Livro completo</a>';
+      if (d.multi)  links += d.multi.map(function (p, i) { return '<a class="doclink pdf" target="_blank" rel="noopener" href="' + href(p) + '">Pág. ' + (i + 1) + "</a>"; }).join("");
+      return '<div class="dcard"' + (d.id ? ' id="' + d.id + '"' : "") + '><div class="fonte">' + d.fonte + "</div><h3>" + d.titulo + "</h3><p>" + d.desc + '</p><div class="links">' + links + "</div></div>";
+    }).join("");
+    return '<div class="fonte-group"><div class="gen-label">' + f + '</div><div class="dcards">' + cards + "</div></div>";
   }).join("");
-  return '<div class="fonte-group"><div class="gen-label">' + f + '</div><div class="dcards">' + cards + "</div></div>";
-}).join("");
+}
+
+renderDocs(DOCS, "docs");
+renderDocs(POSSIVEIS, "docs-possiveis");
 </script>
 <script src="app.js"></script>
 </body>

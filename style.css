@@ -429,6 +429,11 @@ section.bloco:first-of-type { border-top: 0; }
 .fam-grid.g2 .fam .forig { font-size: 10.5px; margin-bottom: 8px; }
 .fam-grid.g2 .fam p { font-size: 12px; }
 .fam-grid.g2 .fam .status { margin-top: 10px; font-size: 10px; }
+.fam.filtravel { cursor: pointer; }
+.fam.filtravel.ativo { border-top-color: var(--accent-2); box-shadow: 0 0 0 1px var(--accent-2); }
+.fam.filtravel.dim { opacity: .35; }
+.fam.fam-hidden { display: none; }
+.filtro-hint { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; color: var(--faint); font-weight: 400; text-transform: none; margin-left: 10px; }
 
 /* ============================================================
    DIÁRIO
