@@ -2,6 +2,10 @@
    Cada página só declara <body data-page="..."> e o resto é montado aqui. */
 
 (function () {
+  // Atualizar esta data manualmente a cada publicação de conteúdo —
+  // serve para confirmar visualmente se o deploy (Cloudflare) refletiu a mudança.
+  var ULTIMA_ATUALIZACAO = "13/11/2026";
+
   var PAGES = [
     { href: "index.html",      key: "inicio",     label: "Início" },
     { href: "historia.html",   key: "historia",   label: "História" },
@@ -65,6 +69,7 @@
     '<div class="colofon">' +
       "<span>Pesquisa conduzida por Miguel Kotowey · desde 02/04/2024</span>" +
       "<span>Informações sujeitas a atualização · fontes documentais</span>" +
+      "<span>Última atualização: " + ULTIMA_ATUALIZACAO + "</span>" +
     "</div>";
   document.body.appendChild(foot);
 
