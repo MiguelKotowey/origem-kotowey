@@ -85,9 +85,9 @@ window.PESSOAS = {
   },
   nicolau: {
     nome: "Nicolau Kotowey", rel: "Filho de Demétrio e Bárbara. Linha com mais documentação levantada.",
-    q: { conc: 4, hip: 0, doc: 1 },
+    q: { conc: 4, hip: 0, doc: 2 },
     campos: [
-      ["Nascimento", "19/01/1889 · Galícia"],
+      ["Nascimento", "04/12/1889 · Proniatyn — Ucrânia"],
       ["Profissão", "Sapateiro"],
       ["Casado com", "Maria Olenik"],
       ["Filhos", "8 — Demétrio, Antonio, Julio, Emílio, Raphael, Jorge, Claudio, Elice"],
@@ -109,9 +109,9 @@ window.PESSOAS = {
   },
   eudoxia: {
     nome: "Eudóxia Kotovey", rel: "Filha de Demétrio e Bárbara — nascida na Galícia (hoje Ucrânia ocidental).",
-    q: { conc: 2, hip: 1, doc: 1 },
+    q: { conc: 3, hip: 0, doc: 2 },
     campos: [
-      ["Nascimento", "≈ 1894 · Galícia"],
+      ["Nascimento", "07/01/1895 · Proniatyn — Ucrânia"],
       ["Casada com", "Estefano Matias · natural da Áustria"],
       ["Filhos", "Ana, Maria, Estanislau (conforme registro de óbito)"],
       ["Falecimento", "28/04/1985 · Curitiba — PR"],
