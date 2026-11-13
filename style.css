@@ -465,6 +465,28 @@ footer {
 .foot-links a:hover { color: var(--accent); }
 .colofon { max-width: var(--wrap); margin: 44px auto 0; padding: 22px var(--gutter) 0; border-top: 1px solid var(--rule); font-family: var(--mono); font-size: 11px; letter-spacing: .06em; color: var(--faint); text-transform: uppercase; display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
 
+.link-chlog { font: inherit; letter-spacing: inherit; text-transform: inherit; background: none; border: none; padding: 0; color: var(--faint); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--rule); }
+.link-chlog:hover { color: var(--accent); text-decoration-color: var(--accent); }
+
+/* modal de histórico de atualizações */
+.chlog { position: fixed; inset: 0; z-index: 100; background: rgba(7,14,26,.72); display: none; place-items: center; padding: 6vh 5vw; }
+.chlog.open { display: grid; }
+.chlog-panel { background: var(--paper); border: 1px solid var(--rule); border-radius: 4px; box-shadow: var(--shadow); max-width: 640px; width: 100%; max-height: 80vh; overflow-y: auto; padding: 36px; position: relative; }
+.chlog-panel h2 { margin: 0 0 6px; font-family: var(--display); font-size: 27px; }
+.chlog-panel .sub { color: var(--muted); font-size: 14px; margin: 0 0 20px; }
+.chlog-x { position: absolute; top: 20px; right: 24px; font-family: var(--serif); font-size: 22px; line-height: 1; color: var(--muted); cursor: pointer; }
+.chlog-x:hover { color: var(--accent); }
+.chlog-item { display: flex; gap: 16px; padding: 14px 0; border-top: 1px solid var(--rule-soft); }
+.chlog-item:first-child { border-top: none; padding-top: 0; }
+.chlog-date { font-family: var(--mono); font-size: 11px; color: var(--faint); white-space: nowrap; padding-top: 3px; min-width: 100px; }
+.chlog-body .tag { margin-bottom: 6px; }
+.chlog-body p { margin: 6px 0 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.55; }
+
+@media (max-width: 500px) {
+  .chlog-item { flex-direction: column; gap: 4px; }
+  .chlog-date { min-width: 0; }
+}
+
 @media (max-width: 700px) {
   .foot-in { grid-template-columns: 1fr; }
   .perfil-grid { grid-template-columns: 1fr; }

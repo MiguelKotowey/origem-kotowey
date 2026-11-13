@@ -2,9 +2,15 @@
    Cada página só declara <body data-page="..."> e o resto é montado aqui. */
 
 (function () {
-  // Atualizar esta data manualmente a cada publicação de conteúdo —
-  // serve para confirmar visualmente se o deploy (Cloudflare) refletiu a mudança.
-  var ULTIMA_ATUALIZACAO = "13/11/2026 10:28";
+  // Histórico de atualizações do site — adicionar uma entrada no TOPO a cada
+  // publicação (conteúdo ou técnica). O rodapé sempre mostra a data da entrada
+  // mais recente (ATUALIZACOES[0]) — serve para confirmar visualmente se o
+  // deploy (Cloudflare) refletiu a mudança.
+  var TIPOS = { achado: "Achado", documento: "Documento", imagem: "Imagem", conteudo: "Conteúdo", tecnico: "Técnico" };
+  var ATUALIZACOES = [
+    { data: "13/11/2026 10:28", tipo: "tecnico", desc: "Rodapé passa a mostrar a data/hora da última atualização, com link para este histórico." },
+    { data: "13/11/2026", tipo: "conteudo", desc: "Corrigidas as datas de nascimento de Nicolau (04/12/1889) e Evdóxia (07/01/1895) — confirmadas por ofício do Arquivo Estadual de Ternopil (ДАТО)." },
+  ];
 
   var PAGES = [
     { href: "index.html",      key: "inicio",     label: "Início" },
@@ -69,9 +75,33 @@
     '<div class="colofon">' +
       "<span>Pesquisa conduzida por Miguel Kotowey · desde 02/04/2024</span>" +
       "<span>Informações sujeitas a atualização · fontes documentais</span>" +
-      "<span>Última atualização: " + ULTIMA_ATUALIZACAO + "</span>" +
+      '<button class="link-chlog" type="button" id="abrirChlog">Última atualização: ' + ATUALIZACOES[0].data + "</button>" +
     "</div>";
   document.body.appendChild(foot);
+
+  // ---- modal de histórico de atualizações ----
+  var chlog = document.createElement("div");
+  chlog.className = "chlog";
+  chlog.innerHTML =
+    '<div class="chlog-panel">' +
+      '<span class="chlog-x">✕</span>' +
+      "<h2>Histórico de atualizações</h2>" +
+      '<p class="sub">O que mudou no site, em ordem — conteúdo e técnico.</p>' +
+      '<div class="chlog-list">' +
+        ATUALIZACOES.map(function (a) {
+          var cls = (a.tipo === "achado" || a.tipo === "documento") ? "tag doc" : "tag";
+          return '<div class="chlog-item">' +
+            '<div class="chlog-date">' + a.data + "</div>" +
+            '<div class="chlog-body"><span class="' + cls + '">' + (TIPOS[a.tipo] || a.tipo) + "</span><p>" + a.desc + "</p></div>" +
+          "</div>";
+        }).join("") +
+      "</div>" +
+    "</div>";
+  document.body.appendChild(chlog);
+  document.getElementById("abrirChlog").addEventListener("click", function () { chlog.classList.add("open"); });
+  chlog.addEventListener("click", function (e) {
+    if (e.target === chlog || e.target.closest(".chlog-x")) chlog.classList.remove("open");
+  });
 
   // ---- lightbox de galeria ----
   var lb = document.createElement("div");
@@ -90,7 +120,11 @@
       lb.classList.remove("open");
     }
   });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape") lb.classList.remove("open"); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    lb.classList.remove("open");
+    chlog.classList.remove("open");
+  });
 
   // ---- reveal on scroll ----
   var io = new IntersectionObserver(function (ents) {
