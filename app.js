@@ -4,7 +4,7 @@
 (function () {
   // Atualizar esta data manualmente a cada publicação de conteúdo —
   // serve para confirmar visualmente se o deploy (Cloudflare) refletiu a mudança.
-  var ULTIMA_ATUALIZACAO = "13/11/2026";
+  var ULTIMA_ATUALIZACAO = "13/11/2026 10:28";
 
   var PAGES = [
     { href: "index.html",      key: "inicio",     label: "Início" },
