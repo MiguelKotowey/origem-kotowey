@@ -8,6 +8,7 @@
   // deploy (Cloudflare) refletiu a mudança.
   var TIPOS = { achado: "Achado", documento: "Documento", imagem: "Imagem", conteudo: "Conteúdo", tecnico: "Técnico" };
   var ATUALIZACOES = [
+    { data: "18/11/2026", tipo: "achado", desc: "Confirmado por documento primário galiciano (ДАТО, Proniatyn 1889/1895) o sobrenome de solteira de Bárbara — Wawron. Divergência sobre o pai de Demétrio (Miguel vs. Ivan/Joannes) registrada no diário e nos perfis." },
     { data: "13/11/2026 11:29", tipo: "tecnico", desc: "Página História: fonte reduzida, e timeline redesenhada (marcadores com halo, trecho da travessia atlântica em dourado, revelação suave ao rolar)." },
     { data: "13/11/2026 10:28", tipo: "tecnico", desc: "Rodapé passa a mostrar a data/hora da última atualização, com link para este histórico." },
     { data: "13/11/2026", tipo: "conteudo", desc: "Corrigidas as datas de nascimento de Nicolau (04/12/1889) e Evdóxia (07/01/1895) — confirmadas por ofício do Arquivo Estadual de Ternopil (ДАТО)." },
